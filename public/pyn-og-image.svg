@@ -1,0 +1,14 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#F5FBFB"/>
+  <path d="M0 520C170 448 302 590 470 520C650 445 760 354 960 410C1074 442 1138 432 1200 390V630H0V520Z" fill="#DFF4F3"/>
+  <path d="M830 96h230c34 0 62 28 62 62v118c0 34-28 62-62 62H830c-34 0-62-28-62-62V158c0-34 28-62 62-62Z" fill="#0B1F24"/>
+  <path d="M842 304V154h85.5c34.4 0 58.5 22.1 58.5 53.6 0 32-24.1 54.1-58.5 54.1h-40V304H842Z" fill="#F7FFFE"/>
+  <path d="M887.5 224.6H924c12.1 0 20.1-6 20.1-15.7 0-10-8-16-20.1-16h-36.5v31.7Z" fill="#0B1F24"/>
+  <path d="M894 282c55 0 88-30.5 98.5-87.5" stroke="#18C7C9" stroke-width="22" stroke-linecap="round"/>
+  <circle cx="994" cy="172" r="19" fill="#F5B942"/>
+  <text x="96" y="220" fill="#0B1F24" font-family="Inter, Arial, sans-serif" font-size="76" font-weight="800" letter-spacing="0">Pyn Technologies</text>
+  <text x="100" y="298" fill="#42666B" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="600">AI, automation, web, app, and growth systems</text>
+  <text x="100" y="384" fill="#0E7C7B" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="700">Build sharper digital products with a partner that moves from idea to launch.</text>
+  <rect x="100" y="438" width="210" height="54" rx="27" fill="#0E7C7B"/>
+  <text x="132" y="473" fill="white" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">pyntechnologies.com</text>
+</svg>
