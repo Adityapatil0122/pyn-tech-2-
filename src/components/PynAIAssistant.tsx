@@ -313,7 +313,7 @@ const PynAIAssistant = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState("");
   const location = useLocation();
-  const endRef = useRef<HTMLDivElement>(null);
+  const chatScrollRef = useRef<HTMLDivElement>(null);
 
   const initialMessage = useMemo<ChatMessage>(
     () => ({
@@ -336,7 +336,37 @@ const PynAIAssistant = () => {
   }, [initialMessage]);
 
   useEffect(() => {
-    endRef.current?.scrollIntoView({ behavior: "smooth", block: "end" });
+    if (!isOpen) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const handleKeyDown = (event: globalThis.KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsOpen(false);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const chatScroll = chatScrollRef.current;
+    if (!chatScroll) return;
+
+    requestAnimationFrame(() => {
+      chatScroll.scrollTo({
+        top: chatScroll.scrollHeight,
+        behavior: "smooth",
+      });
+    });
   }, [messages, isOpen]);
 
   const submitQuestion = (question: string) => {
@@ -367,7 +397,8 @@ const PynAIAssistant = () => {
 
   const handleAction = (action: BotAction) => {
     if (action.type === "contact") {
-      openContact();
+      setIsOpen(false);
+      window.setTimeout(openContact, 0);
       return;
     }
     if (action.type === "prompt" && action.value) {
@@ -395,142 +426,155 @@ const PynAIAssistant = () => {
       </div>
 
       {isOpen && (
-        <div className="fixed bottom-24 right-4 z-50 w-[calc(100vw-2rem)] max-w-[430px] overflow-hidden rounded-lg border border-pyn-blue/15 bg-white shadow-2xl sm:right-6">
-          <div className="bg-pyn-dark text-white">
-            <div className="flex items-start justify-between gap-4 p-4">
-              <div className="flex items-center gap-3">
-                <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-pyn-blue/20 text-pyn-lightBlue">
-                  <Sparkles className="h-5 w-5" />
-                </div>
-                <div>
-                  <div className="flex items-center gap-2">
-                    <h2 className="font-semibold">Pyn AI Assistant</h2>
-                    <span className="rounded-full bg-pyn-amber px-2 py-0.5 text-[10px] font-bold text-pyn-dark">Live</span>
+        <>
+          <button
+            type="button"
+            className="fixed inset-0 z-[60] cursor-default bg-pyn-dark/25 backdrop-blur-sm"
+            onClick={() => setIsOpen(false)}
+            aria-label="Close Pyn AI assistant backdrop"
+          />
+
+          <div className="fixed inset-x-3 bottom-4 z-[70] flex max-h-[calc(100dvh-2rem)] overflow-hidden rounded-lg border border-pyn-blue/15 bg-white shadow-2xl sm:inset-x-auto sm:bottom-24 sm:right-6 sm:w-[430px] sm:max-h-[calc(100dvh-7rem)]">
+            <div className="flex min-h-0 w-full flex-col">
+              <div className="shrink-0 bg-pyn-dark text-white">
+                <div className="flex items-start justify-between gap-4 p-4">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-pyn-blue/20 text-pyn-lightBlue">
+                      <Sparkles className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <div className="flex items-center gap-2">
+                        <h2 className="font-semibold">Pyn AI Assistant</h2>
+                        <span className="rounded-full bg-pyn-amber px-2 py-0.5 text-[10px] font-bold text-pyn-dark">Live</span>
+                      </div>
+                      <p className="mt-0.5 text-xs text-slate-300">Service guidance in seconds</p>
+                    </div>
                   </div>
-                  <p className="mt-0.5 text-xs text-slate-300">Service guidance in seconds</p>
+                  <button
+                    type="button"
+                    onClick={() => setIsOpen(false)}
+                    className="rounded-full p-2 text-slate-300 transition hover:bg-white/10 hover:text-white"
+                    aria-label="Close Pyn AI assistant"
+                  >
+                    <X className="h-5 w-5" />
+                  </button>
                 </div>
               </div>
-              <button
-                type="button"
-                onClick={() => setIsOpen(false)}
-                className="rounded-full p-2 text-slate-300 transition hover:bg-white/10 hover:text-white"
-                aria-label="Close Pyn AI assistant"
-              >
-                <X className="h-5 w-5" />
-              </button>
-            </div>
-          </div>
 
-          <div className="max-h-[min(520px,calc(100vh-14rem))] overflow-y-auto bg-pyn-gray p-4">
-            <div className="mb-4 rounded-md border border-pyn-blue/10 bg-white p-3 text-xs text-slate-600">
-              <div className="mb-1 flex items-center gap-2 font-semibold text-pyn-dark">
-                <CheckCircle2 className="h-4 w-4 text-pyn-blue" />
-                Smart site assistant
-              </div>
-              It can answer service questions instantly. For custom pricing or exact deadlines, it asks for details instead of guessing.
-            </div>
+              <div ref={chatScrollRef} className="min-h-0 flex-1 overflow-y-auto overscroll-contain bg-pyn-gray p-4">
+                <div className="mb-4 rounded-md border border-pyn-blue/10 bg-white p-3 text-xs text-slate-600">
+                  <div className="mb-1 flex items-center gap-2 font-semibold text-pyn-dark">
+                    <CheckCircle2 className="h-4 w-4 text-pyn-blue" />
+                    Smart site assistant
+                  </div>
+                  It can answer service questions instantly. For custom pricing or exact deadlines, it asks for details instead of guessing.
+                </div>
 
-            <div className="space-y-4" aria-live="polite">
-              {messages.map((message) => (
-                <div
-                  key={message.id}
-                  className={cn("flex gap-2", message.role === "user" ? "justify-end" : "justify-start")}
-                >
-                  {message.role === "bot" && (
-                    <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-pyn-dark text-white">
-                      <Bot className="h-4 w-4" />
-                    </div>
-                  )}
-
-                  <div className={cn("max-w-[82%]", message.role === "user" && "flex flex-col items-end")}>
+                <div className="space-y-4" aria-live="polite">
+                  {messages.map((message) => (
                     <div
-                      className={cn(
-                        "rounded-lg px-4 py-3 text-sm leading-relaxed shadow-sm",
-                        message.role === "user"
-                          ? "bg-pyn-blue text-white"
-                          : "border border-slate-200 bg-white text-slate-700"
-                      )}
+                      key={message.id}
+                      className={cn("flex gap-2", message.role === "user" ? "justify-end" : "justify-start")}
                     >
-                      {message.text}
-                    </div>
+                      {message.role === "bot" && (
+                        <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-pyn-dark text-white">
+                          <Bot className="h-4 w-4" />
+                        </div>
+                      )}
 
-                    {message.actions && message.role === "bot" && (
-                      <div className="mt-2 flex flex-wrap gap-2">
-                        {message.actions.map((action) =>
-                          action.type === "link" && action.value ? (
-                            <Link
-                              key={`${message.id}-${action.label}`}
-                              to={action.value}
-                              onClick={() => setIsOpen(false)}
-                              className="inline-flex items-center rounded-full border border-pyn-blue/20 bg-white px-3 py-1.5 text-xs font-semibold text-pyn-blue transition hover:bg-pyn-blue hover:text-white"
-                            >
-                              {action.label} <ArrowRight className="ml-1 h-3 w-3" />
-                            </Link>
-                          ) : (
-                            <button
-                              key={`${message.id}-${action.label}`}
-                              type="button"
-                              onClick={() => handleAction(action)}
-                              className="inline-flex items-center rounded-full border border-pyn-blue/20 bg-white px-3 py-1.5 text-xs font-semibold text-pyn-blue transition hover:bg-pyn-blue hover:text-white"
-                            >
-                              {action.label}
-                            </button>
-                          )
+                      <div className={cn("max-w-[82%]", message.role === "user" && "flex flex-col items-end")}>
+                        <div
+                          className={cn(
+                            "rounded-lg px-4 py-3 text-sm leading-relaxed shadow-sm",
+                            message.role === "user"
+                              ? "bg-pyn-blue text-white"
+                              : "border border-slate-200 bg-white text-slate-700"
+                          )}
+                        >
+                          {message.text}
+                        </div>
+
+                        {message.actions && message.role === "bot" && (
+                          <div className="mt-2 flex flex-wrap gap-2">
+                            {message.actions.map((action) =>
+                              action.type === "link" && action.value ? (
+                                <Link
+                                  key={`${message.id}-${action.label}`}
+                                  to={action.value}
+                                  onClick={() => setIsOpen(false)}
+                                  className="inline-flex items-center rounded-full border border-pyn-blue/20 bg-white px-3 py-1.5 text-xs font-semibold text-pyn-blue transition hover:bg-pyn-blue hover:text-white"
+                                >
+                                  {action.label} <ArrowRight className="ml-1 h-3 w-3" />
+                                </Link>
+                              ) : (
+                                <button
+                                  key={`${message.id}-${action.label}`}
+                                  type="button"
+                                  onClick={() => handleAction(action)}
+                                  className="inline-flex items-center rounded-full border border-pyn-blue/20 bg-white px-3 py-1.5 text-xs font-semibold text-pyn-blue transition hover:bg-pyn-blue hover:text-white"
+                                >
+                                  {action.label}
+                                </button>
+                              )
+                            )}
+                          </div>
                         )}
                       </div>
-                    )}
-                  </div>
 
-                  {message.role === "user" && (
-                    <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-pyn-blue/10 text-pyn-blue">
-                      <User className="h-4 w-4" />
+                      {message.role === "user" && (
+                        <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-pyn-blue/10 text-pyn-blue">
+                          <User className="h-4 w-4" />
+                        </div>
+                      )}
                     </div>
-                  )}
+                  ))}
                 </div>
-              ))}
-              <div ref={endRef} />
-            </div>
-          </div>
+              </div>
 
-          <div className="border-t border-slate-200 bg-white p-3">
-            <div className="mb-3 flex gap-2 overflow-x-auto pb-1">
-              {starterPrompts.map((prompt) => (
+              <div className="shrink-0 border-t border-slate-200 bg-white p-3">
+                <div className="mb-3 flex flex-wrap gap-2">
+                  {starterPrompts.map((prompt) => (
+                    <button
+                      key={prompt}
+                      type="button"
+                      onClick={() => submitQuestion(prompt)}
+                      className="rounded-full bg-pyn-blue/10 px-3 py-1.5 text-xs font-medium text-pyn-blue transition hover:bg-pyn-blue hover:text-white"
+                    >
+                      {prompt}
+                    </button>
+                  ))}
+                </div>
+
+                <form onSubmit={handleSubmit} className="flex items-end gap-2">
+                  <textarea
+                    value={input}
+                    onChange={(event) => setInput(event.target.value)}
+                    onKeyDown={handleKeyDown}
+                    rows={1}
+                    placeholder="Ask about services, pricing, timeline..."
+                    className="max-h-28 min-h-11 flex-1 resize-none rounded-md border border-slate-200 bg-white px-3 py-3 text-sm outline-none transition focus:border-pyn-blue focus:ring-2 focus:ring-pyn-blue/15"
+                  />
+                  <Button type="submit" size="icon" className="h-11 w-11 shrink-0 bg-pyn-dark text-white hover:bg-pyn-blue">
+                    <Send className="h-4 w-4" />
+                  </Button>
+                </form>
+
                 <button
-                  key={prompt}
                   type="button"
-                  onClick={() => submitQuestion(prompt)}
-                  className="whitespace-nowrap rounded-full bg-pyn-blue/10 px-3 py-1.5 text-xs font-medium text-pyn-blue transition hover:bg-pyn-blue hover:text-white"
+                  onClick={() => {
+                    setIsOpen(false);
+                    window.setTimeout(openContact, 0);
+                  }}
+                  className="mt-3 flex w-full items-center justify-center gap-2 rounded-md border border-pyn-blue/20 px-3 py-2 text-sm font-semibold text-pyn-dark transition hover:bg-pyn-gray"
                 >
-                  {prompt}
+                  <CalendarDays className="h-4 w-4 text-pyn-blue" />
+                  Need exact quote? Talk to Pyn team
+                  <MessageCircle className="h-4 w-4 text-pyn-blue" />
                 </button>
-              ))}
+              </div>
             </div>
-
-            <form onSubmit={handleSubmit} className="flex items-end gap-2">
-              <textarea
-                value={input}
-                onChange={(event) => setInput(event.target.value)}
-                onKeyDown={handleKeyDown}
-                rows={1}
-                placeholder="Ask about services, pricing, timeline..."
-                className="max-h-28 min-h-11 flex-1 resize-none rounded-md border border-slate-200 bg-white px-3 py-3 text-sm outline-none transition focus:border-pyn-blue focus:ring-2 focus:ring-pyn-blue/15"
-              />
-              <Button type="submit" size="icon" className="h-11 w-11 shrink-0 bg-pyn-dark text-white hover:bg-pyn-blue">
-                <Send className="h-4 w-4" />
-              </Button>
-            </form>
-
-            <button
-              type="button"
-              onClick={openContact}
-              className="mt-3 flex w-full items-center justify-center gap-2 rounded-md border border-pyn-blue/20 px-3 py-2 text-sm font-semibold text-pyn-dark transition hover:bg-pyn-gray"
-            >
-              <CalendarDays className="h-4 w-4 text-pyn-blue" />
-              Need exact quote? Talk to Pyn team
-              <MessageCircle className="h-4 w-4 text-pyn-blue" />
-            </button>
           </div>
-        </div>
+        </>
       )}
     </>
   );
