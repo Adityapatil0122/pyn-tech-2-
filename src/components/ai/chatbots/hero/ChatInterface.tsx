@@ -15,7 +15,7 @@ export const ChatInterface = () => {
     text: "Hello! I'm your AI assistant. How can I help you today?"
   }]);
   const [isTyping, setIsTyping] = useState(false);
-  const chatEndRef = useRef<HTMLDivElement>(null);
+  const chatMessagesRef = useRef<HTMLDivElement>(null);
 
   const handleMessageSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -55,8 +55,14 @@ export const ChatInterface = () => {
 
   // Auto scroll to bottom when new messages arrive
   useEffect(() => {
-    chatEndRef.current?.scrollIntoView({
-      behavior: "smooth"
+    const chatMessages = chatMessagesRef.current;
+    if (!chatMessages) return;
+
+    requestAnimationFrame(() => {
+      chatMessages.scrollTo({
+        top: chatMessages.scrollHeight,
+        behavior: "smooth"
+      });
     });
   }, [chatHistory, isTyping]);
 
@@ -77,7 +83,7 @@ export const ChatInterface = () => {
         </div>
         
         <div className="bg-slate-50 rounded-xl border border-slate-100">
-          <div className="h-[320px] overflow-y-auto px-4 py-5 space-y-4" style={{
+          <div ref={chatMessagesRef} className="h-[320px] overflow-y-auto px-4 py-5 space-y-4" style={{
             scrollBehavior: 'smooth'
           }}>
             {chatHistory.map((msg, index) => (
@@ -103,8 +109,6 @@ export const ChatInterface = () => {
                 </div>
               </div>
             )}
-            
-            <div ref={chatEndRef} />
           </div>
           
           <form onSubmit={handleMessageSubmit} className="p-3 border-t border-slate-100">
