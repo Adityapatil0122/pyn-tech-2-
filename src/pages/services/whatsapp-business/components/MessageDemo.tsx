@@ -1,6 +1,7 @@
 
 import React from "react";
-import { MessageCircle, CheckCheck } from "lucide-react";
+import { CheckCheck } from "lucide-react";
+import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 
 const messages = [{
   type: "received",
@@ -37,7 +38,7 @@ const MessageDemo = () => {
             <div className="bg-[#128C7E] text-white p-3 md:p-4">
               <div className="flex items-center gap-3">
                 <div className="w-8 h-8 md:w-10 md:h-10 bg-white rounded-full flex items-center justify-center">
-                  <MessageCircle className="w-5 h-5 md:w-6 md:h-6 text-[#128C7E]" />
+                  <WhatsAppIcon className="w-5 h-5 md:w-6 md:h-6 text-[#25D366]" />
                 </div>
                 <div>
                   <p className="font-semibold text-sm md:text-base">Customer Service</p>

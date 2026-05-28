@@ -1,5 +1,5 @@
 
-import { MessageSquare } from "lucide-react";
+import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 
 const WhatsAppButton = () => {
   return (
@@ -8,10 +8,10 @@ const WhatsAppButton = () => {
         href="https://wa.me/919960756292?text=Hello%20Pyn%20Technologies,%20I'm%20interested%20in%20your%20services."
         target="_blank"
         rel="noopener noreferrer"
-        className="flex h-14 w-14 items-center justify-center rounded-full bg-pyn-blue text-white shadow-lg transition-colors duration-300 hover:bg-pyn-darkBlue"
+        className="flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg shadow-[#25D366]/30 transition-all duration-300 hover:-translate-y-1 hover:bg-[#128C7E]"
         aria-label="Chat on WhatsApp"
       >
-        <MessageSquare className="w-full h-full p-3" strokeWidth={2} />
+        <WhatsAppIcon className="h-8 w-8" />
       </a>
     </div>
   );
