@@ -43,9 +43,9 @@ const AIChatbots = () => {
       <Industries />
       <FAQ />
       <StandardCTA
-        title="Ready to Transform Your Customer Experience?"
-        description="Let's build an AI chatbot that delights your customers and grows your business."
-        buttonText="Start Your Chatbot Project"
+        title="Build a Chatbot Your Customers Actually Want to Use"
+        description="Turn repeat questions, lead capture, and support handoffs into one smooth AI conversation shaped around your business."
+        buttonText="Plan My Chatbot"
       />
     </div>
   );

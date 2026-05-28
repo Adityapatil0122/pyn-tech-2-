@@ -11,9 +11,9 @@ interface StandardCTAProps {
 }
 
 export const StandardCTA: React.FC<StandardCTAProps> = ({
-  title = "Ready to Transform Your Business with AI?",
-  description = "Let our experts help you implement the right AI solutions for your specific business needs.",
-  buttonText = "Start Your AI Journey",
+  title = "Make AI Useful Inside Your Actual Workflow",
+  description = "Bring us the messy process, repeated task, or customer bottleneck. We will help shape it into a practical AI system.",
+  buttonText = "Map the AI Plan",
   buttonIcon = <ArrowRight className="ml-2 h-5 w-5" />
 }) => {
   return (
@@ -22,7 +22,7 @@ export const StandardCTA: React.FC<StandardCTAProps> = ({
       title={title}
       description={description}
       primaryText={buttonText}
-      secondaryText="Discuss the Use Case"
+      secondaryText="Talk Through the Use Case"
       compact
     />
   );
