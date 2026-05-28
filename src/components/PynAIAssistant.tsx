@@ -338,8 +338,25 @@ const PynAIAssistant = () => {
   useEffect(() => {
     if (!isOpen) return;
 
-    const previousOverflow = document.body.style.overflow;
+    const scrollY = window.scrollY;
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+    const previousStyles = {
+      left: document.body.style.left,
+      overflow: document.body.style.overflow,
+      paddingRight: document.body.style.paddingRight,
+      position: document.body.style.position,
+      right: document.body.style.right,
+      top: document.body.style.top,
+      width: document.body.style.width,
+    };
+
+    document.body.style.left = "0";
     document.body.style.overflow = "hidden";
+    document.body.style.paddingRight = scrollbarWidth > 0 ? `${scrollbarWidth}px` : previousStyles.paddingRight;
+    document.body.style.position = "fixed";
+    document.body.style.right = "0";
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.width = "100%";
 
     const handleKeyDown = (event: globalThis.KeyboardEvent) => {
       if (event.key === "Escape") {
@@ -350,8 +367,15 @@ const PynAIAssistant = () => {
     window.addEventListener("keydown", handleKeyDown);
 
     return () => {
-      document.body.style.overflow = previousOverflow;
+      document.body.style.left = previousStyles.left;
+      document.body.style.overflow = previousStyles.overflow;
+      document.body.style.paddingRight = previousStyles.paddingRight;
+      document.body.style.position = previousStyles.position;
+      document.body.style.right = previousStyles.right;
+      document.body.style.top = previousStyles.top;
+      document.body.style.width = previousStyles.width;
       window.removeEventListener("keydown", handleKeyDown);
+      window.scrollTo(0, scrollY);
     };
   }, [isOpen]);
 
