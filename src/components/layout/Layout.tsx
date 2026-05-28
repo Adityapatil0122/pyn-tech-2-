@@ -1,4 +1,5 @@
 
+import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
@@ -13,7 +14,9 @@ const Layout = () => {
     <div className="min-h-screen flex flex-col w-full">
       <Navbar />
       <main className="flex-grow w-full">
-        <Outlet />
+        <Suspense fallback={null}>
+          <Outlet />
+        </Suspense>
       </main>
       <Footer />
       <ContactDialog />

@@ -15,7 +15,7 @@ const BlogsPage = () => {
   const postsPerPage = 6;
 
   // Filter posts by active category if selected
-  let filteredPosts = activeCategory 
+  const filteredPosts = activeCategory 
     ? blogPosts.filter(post => post.category === activeCategory)
     : blogPosts;
 

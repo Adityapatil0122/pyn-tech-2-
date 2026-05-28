@@ -11,33 +11,33 @@ import { ThemeProvider } from "@/components/theme-provider";
 import Layout from "./components/layout/Layout";
 
 // Pages
-import HomePage from "./pages/HomePage";
-import ClientsPage from "./pages/ClientsPage";
-import BlogsPage from "./pages/BlogsPage";
-import BlogPost from "./pages/BlogPost";
-import ContactPage from "./pages/ContactPage";
-import NotFound from "./pages/NotFound";
+const HomePage = React.lazy(() => import("./pages/HomePage"));
+const ClientsPage = React.lazy(() => import("./pages/ClientsPage"));
+const BlogsPage = React.lazy(() => import("./pages/BlogsPage"));
+const BlogPost = React.lazy(() => import("./pages/BlogPost"));
+const ContactPage = React.lazy(() => import("./pages/ContactPage"));
+const NotFound = React.lazy(() => import("./pages/NotFound"));
 
 // AI Pages
-import AIChatbots from "./pages/ai/AIChatbots";
-import CustomAISolutions from "./pages/ai/CustomAISolutions";
-import AIIntegration from "./pages/ai/AIIntegration";
-import DataAnalytics from "./pages/ai/DataAnalytics";
-import AISolutions from "./pages/ai/AISolutions";
+const AIChatbots = React.lazy(() => import("./pages/ai/AIChatbots"));
+const CustomAISolutions = React.lazy(() => import("./pages/ai/CustomAISolutions"));
+const AIIntegration = React.lazy(() => import("./pages/ai/AIIntegration"));
+const DataAnalytics = React.lazy(() => import("./pages/ai/DataAnalytics"));
+const AISolutions = React.lazy(() => import("./pages/ai/AISolutions"));
 
 // Service Pages
-import WebsiteDevelopment from "./pages/services/website-development";
-import AppDevelopment from "./pages/services/app-development";
-import DigitalMarketing from "./pages/services/digital-marketing";
-import WhatsAppBusiness from "./pages/services/whatsapp-business";
-import UiUxDesign from "./pages/services/ui-ux-design";
-import GraphicsDesigning from "./pages/services/graphics-designing";
-import StudyRoomManagementPage from "./pages/services/study-room-management";
+const WebsiteDevelopment = React.lazy(() => import("./pages/services/website-development"));
+const AppDevelopment = React.lazy(() => import("./pages/services/app-development"));
+const DigitalMarketing = React.lazy(() => import("./pages/services/digital-marketing"));
+const WhatsAppBusiness = React.lazy(() => import("./pages/services/whatsapp-business"));
+const UiUxDesign = React.lazy(() => import("./pages/services/ui-ux-design"));
+const GraphicsDesigning = React.lazy(() => import("./pages/services/graphics-designing"));
+const StudyRoomManagementPage = React.lazy(() => import("./pages/services/study-room-management"));
 
 // Legal Pages
-import PrivacyPolicy from "./pages/legal/PrivacyPolicy";
-import TermsOfService from "./pages/legal/TermsOfService";
-import CookiePolicy from "./pages/legal/CookiePolicy";
+const PrivacyPolicy = React.lazy(() => import("./pages/legal/PrivacyPolicy"));
+const TermsOfService = React.lazy(() => import("./pages/legal/TermsOfService"));
+const CookiePolicy = React.lazy(() => import("./pages/legal/CookiePolicy"));
 
 // Create a new QueryClient instance
 const queryClient = new QueryClient();

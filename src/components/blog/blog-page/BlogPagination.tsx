@@ -16,7 +16,7 @@ const BlogPagination = ({
 }: BlogPaginationProps) => {
   // Generate page numbers array based on current page and total pages
   const getPageNumbers = () => {
-    let pages = [];
+    const pages = [];
     const maxPagesToShow = 5;
 
     if (totalPages <= maxPagesToShow) {
