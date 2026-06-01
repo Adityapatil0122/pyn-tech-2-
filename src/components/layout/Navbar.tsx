@@ -44,7 +44,7 @@ const Navbar = () => {
 
   return (
     <motion.header
-      className={`sticky top-0 z-50 w-full border-b border-pyn-blue/15 bg-white/80 backdrop-blur-xl transition-all duration-300 ${isScrolled ? 'py-2 shadow-lg' : 'py-3'}`}
+      className={`fixed inset-x-0 top-0 z-50 w-full border-b border-pyn-blue/15 bg-white/85 py-3 backdrop-blur-xl transition-all duration-300 ${isScrolled ? 'shadow-lg' : ''}`}
       initial={prefersReducedMotion ? false : { y: -24, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}

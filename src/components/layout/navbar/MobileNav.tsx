@@ -20,7 +20,7 @@ const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose }) => {
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          className="fixed inset-x-0 bottom-0 top-[56px] z-40 overflow-y-auto border-t border-pyn-blue/10 bg-white pb-safe-area-inset-bottom lg:hidden"
+          className="fixed inset-x-0 bottom-0 top-16 z-40 overflow-y-auto border-t border-pyn-blue/10 bg-white pb-safe-area-inset-bottom md:top-[68px] lg:hidden"
           initial={{ opacity: 0, y: -12, filter: "blur(8px)" }}
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           exit={{ opacity: 0, y: -10, filter: "blur(8px)" }}

@@ -16,7 +16,7 @@ const Layout = () => {
       <ScrollProgress />
       <AmbientMotion />
       <Navbar />
-      <main className="relative z-10 flex-grow w-full">
+      <main className="relative z-10 flex-grow w-full pt-16 md:pt-[68px]">
         <PageTransition>
           <Suspense fallback={<PageLoader />}>
             <Outlet />
