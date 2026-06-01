@@ -190,7 +190,8 @@
     will-change: opacity, transform;
   }
 
-  .dropdown:hover .dropdown-menu {
+  .dropdown:hover .dropdown-menu,
+  .dropdown:focus-within .dropdown-menu {
     @apply visible opacity-100 translate-y-0 scale-100;
   }
 
