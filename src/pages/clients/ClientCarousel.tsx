@@ -1,5 +1,5 @@
 
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import {
   Carousel,
   CarouselContent,
@@ -17,7 +17,7 @@ interface Client {
 interface ClientCarouselProps {
   clients: Client[];
   direction: "ltr" | "rtl";
-  bgColor: string;
+  edgeFadeClass?: string;
   itemSizeClass?: string;
   logoHeight?: string;
   logoContainerHeight?: string;
@@ -26,7 +26,7 @@ interface ClientCarouselProps {
 const ClientCarousel = ({ 
   clients, 
   direction, 
-  bgColor, 
+  edgeFadeClass = "from-background",
   itemSizeClass = "basis-1/3 md:basis-1/3 lg:basis-1/4", 
   logoHeight = "max-h-20",
   logoContainerHeight = "h-24"
@@ -79,8 +79,8 @@ const ClientCarousel = ({
           </CarouselItem>
         ))}
       </CarouselContent>
-      <div className={`absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-${bgColor} to-transparent z-10`} />
-      <div className={`absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-${bgColor} to-transparent z-10`} />
+      <div className={`absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r ${edgeFadeClass} to-transparent`} />
+      <div className={`absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l ${edgeFadeClass} to-transparent`} />
     </Carousel>
   );
 };

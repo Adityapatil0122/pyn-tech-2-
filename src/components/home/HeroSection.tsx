@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -31,7 +30,7 @@ const HeroSection = () => {
               Plan a Project <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
             <Button variant="outline" size="lg" className="w-full justify-center border-white/40 bg-white/5 text-white hover:bg-white/15 sm:w-auto" asChild>
-              <Link to="/ai/solutions">Explore Solutions</Link>
+              <a href="#ai-solutions">Explore Solutions</a>
             </Button>
           </div>
         </div>

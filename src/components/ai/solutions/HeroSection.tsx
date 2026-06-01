@@ -1,5 +1,3 @@
-
-import React from 'react';
 import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -11,7 +9,7 @@ export const HeroSection = () => {
         <div className="flex flex-col md:flex-row items-center justify-between">
           <div className="md:w-1/2 text-white mb-10 md:mb-0">
             <Button asChild variant="ghost" size="sm" className="mb-6 text-white hover:text-white">
-              <Link to="/services">
+              <Link to="/services/website-development">
                 <ArrowLeft className="mr-2 h-4 w-4" /> Back to Services
               </Link>
             </Button>

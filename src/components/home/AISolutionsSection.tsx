@@ -223,6 +223,7 @@ const AISolutionsSection = () => {
 
   return (
     <section
+      id="ai-solutions"
       className="relative isolate overflow-hidden py-20 md:py-28"
       style={{
         background:

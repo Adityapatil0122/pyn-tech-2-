@@ -38,7 +38,7 @@ const CookieConsent = () => {
       <div className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
         <div className="text-sm text-slate-700 md:text-base">
           We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.{" "}
-          <Link to="/legal/cookie-policy" className="text-pyn-blue hover:underline">
+          <Link to="/cookie-policy" className="text-pyn-blue hover:underline">
             Learn more
           </Link>
         </div>
