@@ -1,6 +1,7 @@
 
 import React from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 
 type DropdownItem = {
@@ -16,7 +17,7 @@ type NavDropdownMenuProps = {
 
 const NavDropdownMenu: React.FC<NavDropdownMenuProps> = ({ title, items }) => {
   return (
-    <div className="dropdown relative group">
+    <motion.div className="dropdown relative group" whileHover={{ y: -2 }} whileTap={{ scale: 0.98 }}>
       <button className="flex items-center rounded-full px-4 py-2 text-sm font-medium text-slate-700 transition-colors hover:bg-pyn-gray hover:text-pyn-darkBlue">
         {title} <ChevronDown className="ml-1 h-4 w-4" />
       </button>
@@ -34,7 +35,7 @@ const NavDropdownMenu: React.FC<NavDropdownMenuProps> = ({ title, items }) => {
           ))}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

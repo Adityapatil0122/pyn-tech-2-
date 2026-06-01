@@ -9,13 +9,27 @@ import StatsSection from "@/components/home/StatsSection";
 import ClientsSection from "@/components/home/ClientsSection";
 import CTASection from "@/components/home/CTASection";
 
-// Animation variants
-const fadeInUp = {
-  hidden: { opacity: 0, y: 20 },
+const pageEase = [0.22, 1, 0.36, 1] as const;
+const revealViewport = { once: true, amount: 0.18, margin: "-80px" };
+
+const heroReveal = {
+  hidden: { opacity: 0, scale: 0.992, filter: "blur(10px)" },
   visible: { 
     opacity: 1, 
+    scale: 1,
+    filter: "blur(0px)",
+    transition: { duration: 0.75, ease: pageEase }
+  }
+};
+
+const sectionReveal = {
+  hidden: { opacity: 0, y: 42, scale: 0.985, filter: "blur(12px)" },
+  visible: {
+    opacity: 1,
     y: 0,
-    transition: { duration: 0.6 }
+    scale: 1,
+    filter: "blur(0px)",
+    transition: { duration: 0.75, ease: pageEase }
   }
 };
 
@@ -49,7 +63,7 @@ const HomePage = () => {
       <motion.div
         initial="hidden"
         animate="visible"
-        variants={fadeInUp}
+        variants={heroReveal}
       >
         <HeroSection />
       </motion.div>
@@ -57,8 +71,8 @@ const HomePage = () => {
       <motion.div
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={fadeInUp}
+        viewport={revealViewport}
+        variants={sectionReveal}
       >
         <AISolutionsSection />
       </motion.div>
@@ -66,8 +80,8 @@ const HomePage = () => {
       <motion.div
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={fadeInUp}
+        viewport={revealViewport}
+        variants={sectionReveal}
       >
         <ServicesSection />
       </motion.div>
@@ -75,8 +89,8 @@ const HomePage = () => {
       <motion.div
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={fadeInUp}
+        viewport={revealViewport}
+        variants={sectionReveal}
       >
         <TechStackSection />
       </motion.div>
@@ -84,8 +98,8 @@ const HomePage = () => {
       <motion.div
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={fadeInUp}
+        viewport={revealViewport}
+        variants={sectionReveal}
       >
         <StatsSection />
       </motion.div>
@@ -93,8 +107,8 @@ const HomePage = () => {
       <motion.div
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={fadeInUp}
+        viewport={revealViewport}
+        variants={sectionReveal}
       >
         <ClientsSection />
       </motion.div>
@@ -102,8 +116,8 @@ const HomePage = () => {
       <motion.div
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={fadeInUp}
+        viewport={revealViewport}
+        variants={sectionReveal}
       >
         <CTASection />
       </motion.div>

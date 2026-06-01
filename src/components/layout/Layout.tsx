@@ -8,15 +8,20 @@ import PynAIAssistant from "../PynAIAssistant";
 import WhatsAppButton from "../WhatsAppButton";
 import ScrollToTopButton from "../ScrollToTopButton";
 import CookieConsent from "../CookieConsent";
+import { AmbientMotion, PageLoader, PageTransition, ScrollProgress } from "../motion/SiteMotion";
 
 const Layout = () => {
   return (
-    <div className="min-h-screen flex flex-col w-full">
+    <div className="relative min-h-screen flex flex-col w-full overflow-x-hidden">
+      <ScrollProgress />
+      <AmbientMotion />
       <Navbar />
-      <main className="flex-grow w-full">
-        <Suspense fallback={null}>
-          <Outlet />
-        </Suspense>
+      <main className="relative z-10 flex-grow w-full">
+        <PageTransition>
+          <Suspense fallback={<PageLoader />}>
+            <Outlet />
+          </Suspense>
+        </PageTransition>
       </main>
       <Footer />
       <ContactDialog />
