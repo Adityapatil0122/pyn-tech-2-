@@ -1,6 +1,6 @@
 import type { ElementType } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, BadgeCheck, BarChart3, Bot, PlugZap, Sparkles, Workflow, Zap } from "lucide-react";
+import { ArrowRight, BadgeCheck, BarChart3, Bot, CheckCircle2, MessageCircle, PlugZap, Sparkles, Workflow } from "lucide-react";
 import { Link } from "react-router-dom";
 
 type AICardProps = {
@@ -15,12 +15,7 @@ type AICardProps = {
 
 const businessMoments = ["Customer support", "Lead capture", "WhatsApp flows", "Internal tasks", "Sales follow-up", "Analytics"];
 
-const workflowSteps = [
-  { label: "Listen", value: "Website, WhatsApp, forms" },
-  { label: "Understand", value: "Intent, context, urgency" },
-  { label: "Act", value: "Reply, route, update CRM" },
-  { label: "Improve", value: "Measure and optimize" },
-];
+const assistantHighlights = ["Answers faster", "Captures leads", "Alerts your team"];
 
 const AICard = ({ icon: Icon, title, description, features, link, accent, index }: AICardProps) => {
   return (
@@ -58,126 +53,65 @@ const AICard = ({ icon: Icon, title, description, features, link, accent, index 
 const AIFlowVisual = () => {
   return (
     <motion.div
-      className="relative min-h-[520px] overflow-hidden rounded-lg border border-white/10 bg-white/10 p-4 shadow-2xl backdrop-blur-2xl md:p-5"
+      className="relative overflow-hidden rounded-lg border border-white/10 bg-white/10 p-3 shadow-2xl backdrop-blur-2xl md:p-4"
       initial={{ opacity: 0, scale: 0.96, y: 28 }}
       whileInView={{ opacity: 1, scale: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.65 }}
     >
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[size:30px_30px] opacity-40" />
-      <div className="relative grid min-h-[488px] gap-4 lg:grid-cols-[0.95fr_1.05fr]">
-        <div className="flex flex-col rounded-lg border border-white/10 bg-pyn-dark/72 p-4 backdrop-blur-xl">
-          <div className="mb-5 flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <span className="h-3 w-3 rounded-full bg-pyn-lightBlue" />
-              <span className="h-3 w-3 rounded-full bg-pyn-amber" />
-              <span className="h-3 w-3 rounded-full bg-white/35" />
-            </div>
-            <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-pyn-amber">Pyn AI Console</span>
-          </div>
+      <div className="relative overflow-hidden rounded-lg bg-white/90 text-pyn-dark shadow-xl backdrop-blur-xl">
+        <div className="relative min-h-[320px] overflow-hidden bg-[url('https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1200&q=80')] bg-cover bg-center md:min-h-[390px]">
+          <div className="absolute inset-0 bg-gradient-to-t from-pyn-dark/80 via-pyn-dark/20 to-transparent" />
 
-          <div className="space-y-3">
-            <motion.div
-              className="rounded-lg border border-white/10 bg-white/10 p-4"
-              animate={{ y: [0, -4, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            >
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-pyn-lightBlue">Incoming lead</p>
-              <p className="mt-2 text-sm leading-relaxed text-slate-200">
-                "Can you suggest the right service for a real estate website with WhatsApp automation?"
-              </p>
-            </motion.div>
+          <motion.div
+            className="absolute left-5 top-5 rounded-full border border-white/20 bg-white/90 px-4 py-2 text-sm font-semibold text-pyn-blue shadow-lg backdrop-blur-xl"
+            animate={{ y: [0, -5, 0] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          >
+            AI assistant active
+          </motion.div>
 
-            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
-              {workflowSteps.map((step, index) => (
-                <motion.div
-                  key={step.label}
-                  className="relative overflow-hidden rounded-lg border border-white/10 bg-white/[0.08] p-4"
-                  animate={{ opacity: [0.78, 1, 0.78] }}
-                  transition={{ duration: 3.6, repeat: Infinity, delay: index * 0.35, ease: "easeInOut" }}
-                >
-                  <span className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-pyn-lightBlue to-transparent" />
-                  <p className="text-sm font-bold text-white">{step.label}</p>
-                  <p className="mt-1 text-xs leading-relaxed text-slate-300">{step.value}</p>
-                </motion.div>
-              ))}
+          <motion.div
+            className="absolute bottom-5 right-5 max-w-[250px] rounded-lg border border-white/20 bg-white/95 p-4 shadow-xl backdrop-blur-xl"
+            animate={{ y: [0, 6, 0] }}
+            transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <div className="mb-2 flex items-center gap-2 text-sm font-bold text-pyn-blue">
+              <MessageCircle className="h-4 w-4" />
+              New customer question
             </div>
-          </div>
-
-          <div className="mt-auto pt-4">
-            <div className="relative h-2 overflow-hidden rounded-full bg-white/10">
-              <motion.div
-                className="absolute inset-y-0 left-0 rounded-full bg-gradient-to-r from-pyn-amber via-pyn-lightBlue to-white"
-                animate={{ width: ["18%", "76%", "38%", "92%"], x: ["0%", "12%", "0%", "6%"] }}
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              />
-            </div>
-            <div className="mt-3 flex justify-between text-xs text-slate-300">
-              <span>Intent matched</span>
-              <span>Action ready</span>
-            </div>
-          </div>
+            <p className="text-sm leading-relaxed text-slate-700">
+              "Can you help me choose the right service?"
+            </p>
+          </motion.div>
         </div>
 
-        <div className="grid gap-4">
-          <div className="relative overflow-hidden rounded-lg border border-white/10 bg-white/80 p-5 text-pyn-dark shadow-xl backdrop-blur-xl">
-            <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-pyn-darkBlue via-pyn-blue to-pyn-lightBlue" />
-            <div className="mb-5 flex items-center justify-between">
-              <div>
-                <p className="text-sm font-semibold text-pyn-blue">Automation map</p>
-                <h3 className="text-2xl font-bold">From question to customer action</h3>
-              </div>
-              <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-pyn-blue text-white">
-                <Zap className="h-5 w-5" />
-              </div>
-            </div>
-
-            <div className="space-y-4">
-              {["Website chatbot", "Recommendation engine", "WhatsApp follow-up", "Team notification"].map((item, index) => (
-                <div key={item} className="grid grid-cols-[auto_1fr_auto] items-center gap-3">
-                  <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-pyn-blue/10 text-sm font-bold text-pyn-blue">
-                    {index + 1}
-                  </span>
-                  <div className="h-2 overflow-hidden rounded-full bg-pyn-blue/10">
-                    <motion.div
-                      className="h-full rounded-full bg-gradient-to-r from-pyn-blue to-pyn-lightBlue"
-                      initial={{ width: 0 }}
-                      whileInView={{ width: `${58 + index * 10}%` }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.7, delay: index * 0.16 }}
-                    />
-                  </div>
-                  <span className="w-32 text-right text-xs font-semibold text-slate-600">{item}</span>
-                </div>
-              ))}
-            </div>
+        <div className="p-5 md:p-6">
+          <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-pyn-blue/10 px-3 py-1 text-xs font-bold uppercase tracking-[0.16em] text-pyn-blue">
+            <Sparkles className="h-3.5 w-3.5" />
+            Simple AI support
           </div>
+          <h3 className="max-w-xl text-2xl font-bold leading-tight md:text-3xl">
+            One clear assistant for leads, support, and follow-ups
+          </h3>
+          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-slate-600 md:text-base">
+            Customers ask naturally. The assistant replies, collects details, and sends the next step to your team.
+          </p>
 
-          <div className="grid gap-4 sm:grid-cols-2">
-            <div className="overflow-hidden rounded-lg border border-white/10 bg-white/80 shadow-lg backdrop-blur-xl">
-              <div className="h-28 bg-[url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80')] bg-cover bg-center" />
-              <div className="p-4">
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-pyn-blue">Insights</p>
-                <p className="mt-1 text-sm font-semibold text-pyn-dark">Dashboards that tell teams what to do next.</p>
-              </div>
-            </div>
-
-            <div className="rounded-lg border border-white/10 bg-white/80 p-4 shadow-lg backdrop-blur-xl">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-pyn-blue">Response stack</p>
-              <div className="mt-4 space-y-3">
-                {["Chatbot reply", "Lead score", "CRM update"].map((item, index) => (
-                  <motion.div
-                    key={item}
-                    className="flex items-center justify-between rounded-md bg-pyn-gray/80 px-3 py-2 text-sm font-semibold text-pyn-dark"
-                    animate={{ x: [0, 5, 0] }}
-                    transition={{ duration: 3.2, repeat: Infinity, delay: index * 0.35, ease: "easeInOut" }}
-                  >
-                    <span>{item}</span>
-                    <span className="h-2 w-2 rounded-full bg-pyn-blue" />
-                  </motion.div>
-                ))}
-              </div>
-            </div>
+          <div className="mt-5 grid gap-3 sm:grid-cols-3">
+            {assistantHighlights.map((item, index) => (
+              <motion.div
+                key={item}
+                className="flex items-center gap-2 rounded-lg border border-pyn-blue/15 bg-pyn-gray/80 px-3 py-3 text-sm font-semibold text-pyn-dark"
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.08 }}
+              >
+                <CheckCircle2 className="h-4 w-4 shrink-0 text-pyn-blue" />
+                <span>{item}</span>
+              </motion.div>
+            ))}
           </div>
         </div>
       </div>
