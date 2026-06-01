@@ -1,17 +1,17 @@
 import type { Config } from "tailwindcss";
 import tailwindcssAnimate from "tailwindcss-animate";
 
-const crimsonScale = {
-	50: '#FFF3F5',
-	100: '#FFE4E8',
-	200: '#FFC7D0',
-	300: '#F89CAA',
-	400: '#F35B6A',
-	500: '#A4162A',
-	600: '#8F1023',
-	700: '#5A0A14',
-	800: '#3D0610',
-	900: '#21070D',
+const oceanScale = {
+	50: '#F3F8FB',
+	100: '#EAF4FA',
+	200: '#CBDDE9',
+	300: '#A7D0E6',
+	400: '#6FAED1',
+	500: '#2872A1',
+	600: '#1F5D84',
+	700: '#174B6F',
+	800: '#0E4666',
+	900: '#061C2B',
 };
 
 export default {
@@ -43,22 +43,22 @@ export default {
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
-				blue: crimsonScale,
-				cyan: crimsonScale,
-				emerald: crimsonScale,
-				green: crimsonScale,
-				teal: crimsonScale,
+				blue: oceanScale,
+				cyan: oceanScale,
+				emerald: oceanScale,
+				green: oceanScale,
+				teal: oceanScale,
 				pyn: {
-					blue: '#A4162A',
-					darkBlue: '#5A0A14',
-					lightBlue: '#F35B6A',
-					gray: '#FFF3F5',
-					dark: '#080305',
-					ink: '#21070D',
-					amber: '#F2A65A',
+					blue: '#2872A1',
+					darkBlue: '#0E4666',
+					lightBlue: '#CBDDE9',
+					gray: '#F3F8FB',
+					dark: '#061C2B',
+					ink: '#082536',
+					amber: '#A7D0E6',
 				},
 				primary: {
-					DEFAULT: '#A4162A',
+					DEFAULT: '#2872A1',
 					foreground: 'hsl(var(--primary-foreground))'
 				},
 				secondary: {

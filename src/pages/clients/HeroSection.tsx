@@ -20,7 +20,7 @@ const categoryChips = ["Education", "Real estate", "Travel", "Startups"];
 const HeroSection = () => {
   return (
     <section className="relative isolate overflow-hidden bg-pyn-dark py-20 text-white md:py-24">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_16%_22%,rgba(164,22,42,0.36),transparent_28rem),radial-gradient(circle_at_84%_20%,rgba(242,166,90,0.12),transparent_24rem),linear-gradient(135deg,#080305_0%,#160509_48%,#3d0610_100%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_16%_22%,rgba(40,114,161,0.38),transparent_28rem),radial-gradient(circle_at_84%_20%,rgba(203,221,233,0.18),transparent_24rem),linear-gradient(135deg,#061C2B_0%,#082536_48%,#0E4666_100%)]" />
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.045)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.045)_1px,transparent_1px)] bg-[size:42px_42px] opacity-35" />
 
       <div className="container relative z-10 mx-auto grid items-center gap-12 px-4 md:px-6 lg:grid-cols-[0.84fr_1fr]">

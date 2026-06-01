@@ -60,7 +60,7 @@ export const CapabilitiesSection = () => {
     title: "Custom Reporting",
     description: "Create tailored reports that focus on your most important KPIs and business metrics with automated data pipelines.",
     icon: Code,
-    color: "bg-rose-50 text-rose-600"
+    color: "bg-pyn-lightBlue/20 text-pyn-darkBlue"
   }, {
     title: "Natural Language Processing",
     description: "Extract insights from unstructured text data including customer feedback, social media, and support interactions.",

@@ -227,11 +227,11 @@ const AISolutionsSection = () => {
       className="relative isolate overflow-hidden py-20 md:py-28"
       style={{
         background:
-          "linear-gradient(180deg, #080305 0%, #120508 20%, #21070d 42%, #7a1020 55%, #fff5f7 72%, #fff8f9 100%)",
+          "linear-gradient(180deg, #061C2B 0%, #082536 22%, #0E4666 46%, #2872A1 58%, #CBDDE9 74%, #F3F8FB 100%)",
       }}
     >
       <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-pyn-dark to-transparent" />
-      <div className="absolute inset-x-0 top-[55%] h-56 bg-gradient-to-b from-transparent via-[#fff5f7] to-[#fff8f9]" />
+      <div className="absolute inset-x-0 top-[55%] h-56 bg-gradient-to-b from-transparent via-[#CBDDE9] to-[#F3F8FB]" />
       <div className="container relative z-10 mx-auto px-4 md:px-6">
         <div className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
           <motion.div

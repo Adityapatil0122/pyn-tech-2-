@@ -4,33 +4,33 @@
 
 @layer base {
   :root {
-    --background: 350 60% 98%;
-    --foreground: 348 72% 7%;
+    --background: 202 50% 97%;
+    --foreground: 204 76% 10%;
 
     --card: 0 0% 100%;
-    --card-foreground: 348 72% 7%;
+    --card-foreground: 204 76% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 348 72% 7%;
+    --popover-foreground: 204 76% 10%;
 
-    --primary: 350 76% 36%;
+    --primary: 203 60% 39%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 350 62% 95%;
-    --secondary-foreground: 348 72% 7%;
+    --secondary: 204 41% 85%;
+    --secondary-foreground: 204 76% 10%;
 
-    --muted: 350 62% 95%;
-    --muted-foreground: 350 22% 38%;
+    --muted: 202 62% 95%;
+    --muted-foreground: 202 24% 38%;
 
-    --accent: 31 84% 65%;
-    --accent-foreground: 348 72% 7%;
+    --accent: 201 56% 78%;
+    --accent-foreground: 204 76% 10%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 350 24% 88%;
-    --input: 350 24% 88%;
-    --ring: 350 76% 36%;
+    --border: 204 32% 84%;
+    --input: 204 32% 84%;
+    --ring: 203 60% 39%;
 
     --radius: 0.5rem;
 
@@ -48,37 +48,37 @@
 
     --sidebar-border: 220 13% 91%;
 
-    --sidebar-ring: 350 76% 36%;
+    --sidebar-ring: 203 60% 39%;
   }
 
   .dark {
-    --background: 348 72% 5%;
+    --background: 204 76% 8%;
     --foreground: 210 40% 98%;
 
-    --card: 348 60% 7%;
+    --card: 204 74% 12%;
     --card-foreground: 210 40% 98%;
 
-    --popover: 348 60% 7%;
+    --popover: 204 74% 12%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 350 76% 48%;
+    --primary: 203 60% 47%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 348 46% 14%;
+    --secondary: 203 48% 18%;
     --secondary-foreground: 210 40% 98%;
 
-    --muted: 348 46% 14%;
+    --muted: 203 48% 18%;
     --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 31 84% 65%;
+    --accent: 201 56% 78%;
     --accent-foreground: 210 40% 98%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 348 40% 18%;
-    --input: 348 40% 18%;
-    --ring: 350 76% 48%;
+    --border: 203 42% 22%;
+    --input: 203 42% 22%;
+    --ring: 203 60% 47%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -148,9 +148,9 @@
     @apply bg-background text-foreground;
     min-height: 100vh;
     background:
-      radial-gradient(circle at 6% 0%, rgba(164, 22, 42, 0.22), transparent 30rem),
-      radial-gradient(circle at 100% 18%, rgba(8, 3, 5, 0.13), transparent 28rem),
-      linear-gradient(135deg, #fff8f9 0%, #fff1f3 48%, #f8eef0 100%);
+      radial-gradient(circle at 6% 0%, rgba(40, 114, 161, 0.22), transparent 30rem),
+      radial-gradient(circle at 100% 18%, rgba(203, 221, 233, 0.44), transparent 28rem),
+      linear-gradient(135deg, #f7fbfd 0%, #eaf4fa 48%, #cbdde9 100%);
     background-attachment: fixed;
     font-family: "Plus Jakarta Sans", Inter, system-ui, sans-serif;
     font-optical-sizing: auto;
@@ -159,8 +159,8 @@
   }
 
   ::selection {
-    background: rgba(242, 166, 90, 0.35);
-    color: #21070D;
+    background: rgba(203, 221, 233, 0.75);
+    color: #061C2B;
   }
 
   h1,
@@ -220,8 +220,8 @@
 }
 
 .bg-grid-pattern {
-  background-image: linear-gradient(to right, rgba(164, 22, 42, 0.12) 1px, transparent 1px),
-                    linear-gradient(to bottom, rgba(164, 22, 42, 0.12) 1px, transparent 1px);
+  background-image: linear-gradient(to right, rgba(40, 114, 161, 0.12) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(40, 114, 161, 0.12) 1px, transparent 1px);
   background-size: 20px 20px;
 }
 
@@ -247,7 +247,7 @@
 }
 
 .bg-pyn-gray {
-  background-color: rgba(255, 243, 245, 0.72) !important;
+  background-color: rgba(243, 248, 251, 0.72) !important;
   backdrop-filter: blur(18px) saturate(135%);
   -webkit-backdrop-filter: blur(18px) saturate(135%);
 }
@@ -256,7 +256,7 @@
 .border-gray-200,
 .border-slate-100,
 .border-slate-200 {
-  border-color: rgba(164, 22, 42, 0.16) !important;
+  border-color: rgba(40, 114, 161, 0.16) !important;
 }
 
 .shadow-sm,
@@ -264,6 +264,6 @@
 .shadow-lg,
 .shadow-xl,
 .shadow-2xl {
-  --tw-shadow-color: rgba(33, 7, 13, 0.12);
+  --tw-shadow-color: rgba(6, 28, 43, 0.12);
   --tw-shadow: var(--tw-shadow-colored);
 }

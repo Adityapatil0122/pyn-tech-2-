@@ -83,7 +83,7 @@ const ServicesSection = () => {
       title: "Graphics Design",
       description: "Brand visuals, social creatives, and print assets with a clean digital finish.",
       icon: Palette,
-      tone: "bg-rose-100 text-rose-700",
+      tone: "bg-pyn-lightBlue/30 text-pyn-darkBlue",
       features: ["Brand Identity", "Marketing Materials", "Social Media Graphics", "Print Design"],
       link: "/services/graphics-designing",
     },

@@ -30,7 +30,7 @@ export const IntegrationFeatures = () => {
     title: "AI Model Integration",
     description: "Connect to leading AI models from OpenAI, Anthropic, Google AI, and more through a single unified interface.",
     icon: Network,
-    color: "bg-rose-50 text-rose-600"
+    color: "bg-pyn-lightBlue/20 text-pyn-darkBlue"
   }, {
     title: "Scalable Infrastructure",
     description: "Our cloud-native architecture automatically scales to handle your workloads, from startup to enterprise scale.",

@@ -62,7 +62,7 @@ const steps = [
     title: "Reporting & Strategy Refinement",
     description: "Comprehensive reporting with actionable insights to continuously improve strategy.",
     icon: <FileText size={24} />,
-    iconBg: "bg-red-500",
+    iconBg: "bg-pyn-darkBlue",
     items: [
       { text: "Comprehensive Performance Reporting", isLeft: true },
       { text: "Growth Opportunity Identification", isLeft: true },

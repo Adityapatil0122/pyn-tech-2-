@@ -33,7 +33,7 @@ const Hero = () => {
             <div className="relative z-10 bg-white rounded-xl shadow-2xl overflow-hidden">
               <div className="bg-gray-800 p-3 flex items-center gap-2">
                 <div className="flex gap-2">
-                  <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                  <div className="w-3 h-3 rounded-full bg-pyn-blue"></div>
                   <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
                   <div className="w-3 h-3 rounded-full bg-green-500"></div>
                 </div>

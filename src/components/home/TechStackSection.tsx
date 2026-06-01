@@ -126,7 +126,7 @@ const groupStyles: Record<TechGroup, string> = {
   Frontend: "border-pyn-lightBlue/40 bg-pyn-lightBlue/10 text-pyn-lightBlue",
   Backend: "border-pyn-amber/40 bg-pyn-amber/20 text-pyn-amber",
   Cloud: "border-white/25 bg-white/10 text-white",
-  Data: "border-pyn-blue/40 bg-pyn-blue/20 text-rose-100",
+  Data: "border-pyn-blue/40 bg-pyn-blue/20 text-pyn-lightBlue",
   DevOps: "border-slate-300/25 bg-slate-200/10 text-slate-100",
 };
 
@@ -156,7 +156,7 @@ const TechStackSection = () => {
 
   return (
     <section className="relative isolate overflow-hidden bg-pyn-dark py-24 text-white md:py-28">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_15%,rgba(243,91,106,0.24),transparent_30rem),radial-gradient(circle_at_84%_28%,rgba(242,166,90,0.15),transparent_26rem),linear-gradient(135deg,#080305_0%,#160509_48%,#2a0710_100%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_15%,rgba(40,114,161,0.34),transparent_30rem),radial-gradient(circle_at_84%_28%,rgba(203,221,233,0.22),transparent_26rem),linear-gradient(135deg,#061C2B_0%,#082536_48%,#0E4666_100%)]" />
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[size:42px_42px] opacity-20" />
 
       <motion.div
@@ -200,7 +200,7 @@ const TechStackSection = () => {
               </div>
               <motion.div
                 className="flex h-12 w-12 items-center justify-center rounded-lg border border-white/10 bg-white/10"
-                animate={{ boxShadow: ["0 0 0 rgba(243,91,106,0)", "0 0 28px rgba(243,91,106,0.35)", "0 0 0 rgba(243,91,106,0)"] }}
+                animate={{ boxShadow: ["0 0 0 rgba(40,114,161,0)", "0 0 28px rgba(203,221,233,0.35)", "0 0 0 rgba(40,114,161,0)"] }}
                 transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut" }}
               >
                 <Layers3 className="h-6 w-6 text-pyn-lightBlue" />

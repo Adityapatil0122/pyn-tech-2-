@@ -38,7 +38,7 @@ export const Capabilities = () => {
     title: "Scalable Infrastructure",
     description: "Build AI solutions on a scalable infrastructure that grows with your business needs and evolving demands.",
     icon: Rocket,
-    color: "bg-rose-50 text-rose-600"
+    color: "bg-pyn-lightBlue/20 text-pyn-darkBlue"
   }, {
     title: "Security & Compliance",
     description: "Ensure the security and compliance of your AI solutions with industry-leading security measures and compliance standards.",

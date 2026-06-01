@@ -19,9 +19,9 @@ const industryTones: Record<string, { iconBg: string; iconText: string; dot: str
   cyan: { iconBg: "bg-pyn-lightBlue/10", iconText: "text-pyn-lightBlue", dot: "bg-pyn-lightBlue" },
   accent: { iconBg: "bg-pyn-amber/10", iconText: "text-pyn-darkBlue", dot: "bg-pyn-amber" },
   emerald: { iconBg: "bg-emerald-50", iconText: "text-emerald-600", dot: "bg-emerald-500" },
-  rose: { iconBg: "bg-rose-50", iconText: "text-rose-600", dot: "bg-rose-500" },
+  rose: { iconBg: "bg-pyn-lightBlue/20", iconText: "text-pyn-darkBlue", dot: "bg-pyn-blue" },
   orange: { iconBg: "bg-pyn-amber/10", iconText: "text-pyn-darkBlue", dot: "bg-pyn-blue" },
-  red: { iconBg: "bg-red-50", iconText: "text-red-600", dot: "bg-red-500" },
+  red: { iconBg: "bg-pyn-blue/10", iconText: "text-pyn-blue", dot: "bg-pyn-darkBlue" },
   slate: { iconBg: "bg-slate-100", iconText: "text-slate-700", dot: "bg-slate-500" },
 };
 

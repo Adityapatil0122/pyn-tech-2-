@@ -30,7 +30,7 @@ const collaborationSteps = [
 const ImpactSection = () => {
   return (
     <section className="relative overflow-hidden bg-pyn-dark py-20 text-white md:py-24">
-      <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(164,22,42,0.2),rgba(8,3,5,0.95)_52%,rgba(90,10,20,0.5))]" />
+      <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(40,114,161,0.28),rgba(6,28,43,0.95)_52%,rgba(14,70,102,0.58))]" />
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.045)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.045)_1px,transparent_1px)] bg-[size:36px_36px] opacity-50" />
 
       <div className="container relative z-10 mx-auto px-4 md:px-6">
