@@ -1,6 +1,19 @@
 import type { Config } from "tailwindcss";
 import tailwindcssAnimate from "tailwindcss-animate";
 
+const crimsonScale = {
+	50: '#FFF3F5',
+	100: '#FFE4E8',
+	200: '#FFC7D0',
+	300: '#F89CAA',
+	400: '#F35B6A',
+	500: '#A4162A',
+	600: '#8F1023',
+	700: '#5A0A14',
+	800: '#3D0610',
+	900: '#21070D',
+};
+
 export default {
 	darkMode: ["class"],
 	content: [
@@ -25,17 +38,22 @@ export default {
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
+				blue: crimsonScale,
+				cyan: crimsonScale,
+				emerald: crimsonScale,
+				green: crimsonScale,
+				teal: crimsonScale,
 				pyn: {
-					blue: '#0E7C7B',
-					darkBlue: '#0B4F55',
-					lightBlue: '#18C7C9',
-					gray: '#F5FBFB',
-					dark: '#0B1F24',
-					ink: '#102A2E',
-					amber: '#F5B942',
+					blue: '#A4162A',
+					darkBlue: '#5A0A14',
+					lightBlue: '#F35B6A',
+					gray: '#FFF3F5',
+					dark: '#080305',
+					ink: '#21070D',
+					amber: '#F2A65A',
 				},
 				primary: {
-					DEFAULT: '#0E7C7B',
+					DEFAULT: '#A4162A',
 					foreground: 'hsl(var(--primary-foreground))'
 				},
 				secondary: {

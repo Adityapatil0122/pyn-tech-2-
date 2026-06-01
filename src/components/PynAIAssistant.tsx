@@ -453,14 +453,14 @@ const PynAIAssistant = () => {
         <>
           <button
             type="button"
-            className="fixed inset-0 z-[60] cursor-default bg-pyn-dark/25 backdrop-blur-sm"
+            className="fixed inset-0 z-[60] cursor-default bg-pyn-dark/35 backdrop-blur-md"
             onClick={() => setIsOpen(false)}
             aria-label="Close Pyn AI assistant backdrop"
           />
 
-          <div className="fixed inset-x-3 bottom-4 z-[70] flex max-h-[calc(100dvh-2rem)] overflow-hidden rounded-lg border border-pyn-blue/15 bg-white shadow-2xl sm:inset-x-auto sm:bottom-24 sm:right-6 sm:w-[430px] sm:max-h-[calc(100dvh-7rem)]">
+          <div className="fixed inset-x-3 bottom-4 z-[70] flex max-h-[calc(100dvh-2rem)] overflow-hidden rounded-lg border border-pyn-blue/20 bg-white/80 shadow-2xl backdrop-blur-2xl sm:inset-x-auto sm:bottom-24 sm:right-6 sm:w-[430px] sm:max-h-[calc(100dvh-7rem)]">
             <div className="flex min-h-0 w-full flex-col">
-              <div className="shrink-0 bg-pyn-dark text-white">
+              <div className="shrink-0 bg-gradient-to-r from-pyn-dark via-pyn-darkBlue to-pyn-blue text-white">
                 <div className="flex items-start justify-between gap-4 p-4">
                   <div className="flex items-center gap-3">
                     <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-pyn-blue/20 text-pyn-lightBlue">
@@ -485,8 +485,8 @@ const PynAIAssistant = () => {
                 </div>
               </div>
 
-              <div ref={chatScrollRef} className="min-h-0 flex-1 overflow-y-auto overscroll-contain bg-pyn-gray p-4">
-                <div className="mb-4 rounded-md border border-pyn-blue/10 bg-white p-3 text-xs text-slate-600">
+              <div ref={chatScrollRef} className="min-h-0 flex-1 overflow-y-auto overscroll-contain bg-pyn-gray/80 p-4">
+                <div className="mb-4 rounded-md border border-pyn-blue/15 bg-white/80 p-3 text-xs text-slate-600 backdrop-blur-xl">
                   <div className="mb-1 flex items-center gap-2 font-semibold text-pyn-dark">
                     <CheckCircle2 className="h-4 w-4 text-pyn-blue" />
                     Smart site assistant
@@ -512,7 +512,7 @@ const PynAIAssistant = () => {
                             "rounded-lg px-4 py-3 text-sm leading-relaxed shadow-sm",
                             message.role === "user"
                               ? "bg-pyn-blue text-white"
-                              : "border border-slate-200 bg-white text-slate-700"
+                              : "border border-pyn-blue/15 bg-white/80 text-slate-700 backdrop-blur-xl"
                           )}
                         >
                           {message.text}
@@ -526,7 +526,7 @@ const PynAIAssistant = () => {
                                   key={`${message.id}-${action.label}`}
                                   to={action.value}
                                   onClick={() => setIsOpen(false)}
-                                  className="inline-flex items-center rounded-full border border-pyn-blue/20 bg-white px-3 py-1.5 text-xs font-semibold text-pyn-blue transition hover:bg-pyn-blue hover:text-white"
+                                  className="inline-flex items-center rounded-full border border-pyn-blue/20 bg-white/80 px-3 py-1.5 text-xs font-semibold text-pyn-blue backdrop-blur-xl transition hover:bg-pyn-blue hover:text-white"
                                 >
                                   {action.label} <ArrowRight className="ml-1 h-3 w-3" />
                                 </Link>
@@ -535,7 +535,7 @@ const PynAIAssistant = () => {
                                   key={`${message.id}-${action.label}`}
                                   type="button"
                                   onClick={() => handleAction(action)}
-                                  className="inline-flex items-center rounded-full border border-pyn-blue/20 bg-white px-3 py-1.5 text-xs font-semibold text-pyn-blue transition hover:bg-pyn-blue hover:text-white"
+                                  className="inline-flex items-center rounded-full border border-pyn-blue/20 bg-white/80 px-3 py-1.5 text-xs font-semibold text-pyn-blue backdrop-blur-xl transition hover:bg-pyn-blue hover:text-white"
                                 >
                                   {action.label}
                                 </button>
@@ -555,7 +555,7 @@ const PynAIAssistant = () => {
                 </div>
               </div>
 
-              <div className="shrink-0 border-t border-slate-200 bg-white p-3">
+              <div className="shrink-0 border-t border-pyn-blue/15 bg-white/80 p-3 backdrop-blur-xl">
                 <div className="mb-3 flex flex-wrap gap-2">
                   {starterPrompts.map((prompt) => (
                     <button
@@ -576,7 +576,7 @@ const PynAIAssistant = () => {
                     onKeyDown={handleKeyDown}
                     rows={1}
                     placeholder="Ask about services, pricing, timeline..."
-                    className="max-h-28 min-h-11 flex-1 resize-none rounded-md border border-slate-200 bg-white px-3 py-3 text-sm outline-none transition focus:border-pyn-blue focus:ring-2 focus:ring-pyn-blue/15"
+                    className="max-h-28 min-h-11 flex-1 resize-none rounded-md border border-pyn-blue/15 bg-white/80 px-3 py-3 text-sm outline-none backdrop-blur-xl transition focus:border-pyn-blue focus:ring-2 focus:ring-pyn-blue/15"
                   />
                   <Button type="submit" size="icon" className="h-11 w-11 shrink-0 bg-pyn-dark text-white hover:bg-pyn-blue">
                     <Send className="h-4 w-4" />

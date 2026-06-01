@@ -41,7 +41,7 @@ const Navbar = () => {
   };
 
   return (
-    <header className={`sticky top-0 w-full border-b border-pyn-blue/10 bg-white/95 backdrop-blur z-50 transition-all duration-300 ${isScrolled ? 'py-2 shadow-sm' : 'py-3'}`}>
+    <header className={`sticky top-0 w-full border-b border-pyn-blue/15 bg-white/80 backdrop-blur-xl z-50 transition-all duration-300 ${isScrolled ? 'py-2 shadow-lg' : 'py-3'}`}>
       <div className="container mx-auto px-4 md:px-6">
         <nav className="flex items-center justify-between relative">
           {/* Logo with eager loading and explicit dimensions */}
