@@ -11,18 +11,15 @@ interface PrincipleCardProps {
   color?: string;
 }
 
-const PrincipleCard = ({ icon: Icon, title, subtitle, description, color = "from-pyn-blue to-pyn-darkBlue" }: PrincipleCardProps) => {
+const PrincipleCard = ({ icon: Icon, title, subtitle, description }: PrincipleCardProps) => {
   return (
     <motion.div 
       className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 relative h-full"
       whileHover={{ y: -5 }}
     >
-      {/* Colored top strip */}
-      <div className={`h-1.5 sm:h-2 bg-gradient-to-r ${color}`}></div>
-      
       <div className="p-4 sm:p-6 h-full flex flex-col">
-        <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg flex items-center justify-center mb-3 sm:mb-4 bg-gradient-to-r ${color}`}>
-          <Icon className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
+        <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-pyn-blue/10 text-pyn-blue ring-1 ring-pyn-blue/15 sm:mb-4 sm:h-12 sm:w-12">
+          <Icon className="h-5 w-5 sm:h-6 sm:w-6" />
         </div>
         
         <div className="flex-grow">

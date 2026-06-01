@@ -2,51 +2,57 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardDescription, CardTitle } from "@/components/ui/card";
 import { motion } from "framer-motion";
-import { Smartphone, Code, Globe, Zap, Shield, Check } from "lucide-react";
+import { AndroidLogo, Code, DeviceMobile, Gauge, GlobeHemisphereWest, ShieldCheck } from "@phosphor-icons/react";
 
 const AppDevelopmentServices = () => {
   const services = [
     {
-      icon: Smartphone,
+      icon: DeviceMobile,
       title: "Native iOS Development",
       description: "Powerful, high-performance iOS applications built with Swift and Objective-C that leverage the full capabilities of Apple devices.",
       features: ["Swift & Objective-C", "Apple Design Guidelines", "Core iOS APIs", "TestFlight Integration", "App Store Optimization"],
-      color: "from-pyn-blue to-pyn-darkBlue"
+      tone: "bg-[#EAF4FA] text-[#2872A1] ring-[#CBDDE9]",
+      dot: "bg-[#2872A1]"
     },
     {
-      icon: Smartphone,
+      icon: AndroidLogo,
       title: "Native Android Development",
       description: "Feature-rich Android applications built with Kotlin and Java, designed for the diverse Android ecosystem and Google Play Store.",
       features: ["Kotlin & Java", "Material Design", "Android Jetpack", "Google Play Services", "Cross-device Compatibility"],
-      color: "from-green-500 to-pyn-blue"
+      tone: "bg-[#EAF7EF] text-[#2E8B57] ring-[#BDE7CB]",
+      dot: "bg-[#2E8B57]"
     },
     {
       icon: Code,
       title: "Flutter Development",
       description: "Cross-platform applications with near-native performance using Flutter's reactive framework and Dart programming language.",
       features: ["Single Codebase", "Hot Reload", "Custom Widgets", "Native Performance", "Consistent UI"],
-      color: "from-pyn-lightBlue to-pyn-blue"
+      tone: "bg-[#EEF2FF] text-[#4F46E5] ring-[#C7D2FE]",
+      dot: "bg-[#4F46E5]"
     },
     {
-      icon: Globe,
+      icon: GlobeHemisphereWest,
       title: "Cross-Platform Solutions",
       description: "Cost-effective applications that run on multiple platforms from a single codebase, reducing development time and maintenance costs.",
       features: ["Code Sharing", "Unified Logic", "Consistent Experience", "Faster Development", "Easier Maintenance"],
-      color: "from-pyn-amber to-pyn-blue"
+      tone: "bg-[#ECFEFF] text-[#0E7490] ring-[#A5F3FC]",
+      dot: "bg-[#0E7490]"
     },
     {
-      icon: Zap,
+      icon: Gauge,
       title: "App Optimization",
       description: "Performance tuning and optimization services to ensure your app runs smoothly, loads quickly, and provides an exceptional user experience.",
       features: ["Speed Enhancement", "Memory Management", "Battery Optimization", "Size Reduction", "Smooth Animations"],
-      color: "from-pyn-amber to-pyn-darkBlue"
+      tone: "bg-[#FFF7ED] text-[#EA580C] ring-[#FED7AA]",
+      dot: "bg-[#EA580C]"
     },
     {
-      icon: Shield,
+      icon: ShieldCheck,
       title: "App Maintenance",
       description: "Ongoing support and maintenance services to keep your application secure, up-to-date, and performing at its best.",
       features: ["Regular Updates", "Security Patches", "Feature Enhancements", "Bug Fixes", "Platform Compatibility"],
-      color: "from-emerald-500 to-green-600"
+      tone: "bg-[#F0FDF4] text-[#16A34A] ring-[#BBF7D0]",
+      dot: "bg-[#16A34A]"
     }
   ];
 
@@ -88,8 +94,8 @@ const AppDevelopmentServices = () => {
             <motion.div key={index} variants={item}>
               <Card className="h-full border-none hover:shadow-xl transition-all duration-300 bg-white hover:-translate-y-1 overflow-hidden">
                 <CardHeader>
-                  <div className={`w-12 h-12 rounded-lg flex items-center justify-center mb-4 bg-gradient-to-r ${service.color}`}>
-                    <service.icon className="h-6 w-6 text-white" />
+                  <div className={`mb-4 flex h-12 w-12 items-center justify-center rounded-lg ring-1 ${service.tone}`}>
+                    <service.icon className="h-7 w-7" weight="duotone" />
                   </div>
                   <CardTitle className="text-xl">{service.title}</CardTitle>
                   <CardDescription className="text-base">{service.description}</CardDescription>
@@ -98,7 +104,7 @@ const AppDevelopmentServices = () => {
                   <ul className="space-y-2">
                     {service.features.map((feature, i) => (
                       <li key={i} className="flex items-center">
-                        <div className={`mr-2 h-1.5 w-1.5 rounded-full bg-gradient-to-r ${service.color}`}></div>
+                        <div className={`mr-2 h-1.5 w-1.5 rounded-full ${service.dot}`}></div>
                         <span>{feature}</span>
                       </li>
                     ))}

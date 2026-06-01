@@ -11,7 +11,7 @@ interface ServiceCardProps {
   color?: string;
 }
 
-const ServiceCard = ({ icon: Icon, title, description, features, color = "from-pyn-blue to-pyn-darkBlue" }: ServiceCardProps) => {
+const ServiceCard = ({ icon: Icon, title, description, features }: ServiceCardProps) => {
   return (
     <motion.div 
       variants={{
@@ -20,12 +20,9 @@ const ServiceCard = ({ icon: Icon, title, description, features, color = "from-p
       }}
       className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 relative"
     >
-      {/* Colored top strip */}
-      <div className={`h-2 bg-gradient-to-r ${color}`}></div>
-      
       <div className="p-6">
-        <div className={`w-12 h-12 rounded-lg flex items-center justify-center mb-4 bg-gradient-to-r ${color}`}>
-          <Icon className="h-6 w-6 text-white" />
+        <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-pyn-blue/10 text-pyn-blue ring-1 ring-pyn-blue/15">
+          <Icon className="h-6 w-6" />
         </div>
         <h3 className="text-xl font-semibold mb-3">{title}</h3>
         <p className="text-gray-600 mb-4">{description}</p>

@@ -1,44 +1,50 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Search, Instagram, Mail, MessageSquare, BarChart, TrendingUp } from "lucide-react";
+import { ChartBar, ChatsCircle, EnvelopeSimple, InstagramLogo, MagnifyingGlass, TrendUp } from "@phosphor-icons/react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 const MarketingServices = () => {
   const services = [{
     title: "Search Engine Optimization",
     description: "Improve your website's visibility in search results to drive more organic traffic and qualified leads.",
-    icon: Search,
-    color: "from-pyn-blue to-pyn-darkBlue",
+    icon: MagnifyingGlass,
+    tone: "bg-[#EAF4FA] text-[#2872A1] ring-[#CBDDE9]",
+    dot: "bg-[#2872A1]",
     features: ["Keyword Research", "On-Page Optimization", "Technical SEO", "Content Strategy", "Link Building"]
   }, {
     title: "Social Media Marketing",
     description: "Build brand awareness and engage with your target audience across all relevant social platforms.",
-    icon: Instagram,
-    color: "from-pyn-amber to-pyn-blue",
+    icon: InstagramLogo,
+    tone: "bg-[#FDF2F8] text-[#DB2777] ring-[#FBCFE8]",
+    dot: "bg-[#DB2777]",
     features: ["Platform Strategy", "Content Creation", "Community Management", "Paid Campaigns", "Analytics"]
   }, {
     title: "Pay-Per-Click (PPC)",
     description: "Drive immediate traffic and conversions with targeted advertising campaigns that maximize ROI.",
-    icon: TrendingUp,
-    color: "from-pyn-amber to-pyn-darkBlue",
+    icon: TrendUp,
+    tone: "bg-[#FFF7ED] text-[#EA580C] ring-[#FED7AA]",
+    dot: "bg-[#EA580C]",
     features: ["Campaign Strategy", "Keyword Targeting", "Ad Creation", "A/B Testing", "Conversion Tracking"]
   }, {
     title: "Email Marketing",
     description: "Nurture leads and drive conversions with personalized email campaigns that deliver value.",
-    icon: Mail,
-    color: "from-emerald-500 to-green-600",
+    icon: EnvelopeSimple,
+    tone: "bg-[#EEF2FF] text-[#4F46E5] ring-[#C7D2FE]",
+    dot: "bg-[#4F46E5]",
     features: ["List Building", "Sequence Design", "Personalization", "Automation", "Performance Analysis"]
   }, {
     title: "Content Marketing",
     description: "Establish authority in your industry with high-quality content that educates and converts.",
-    icon: MessageSquare,
-    color: "from-pyn-lightBlue to-pyn-blue",
+    icon: ChatsCircle,
+    tone: "bg-[#ECFEFF] text-[#0E7490] ring-[#A5F3FC]",
+    dot: "bg-[#0E7490]",
     features: ["Content Strategy", "Blog Management", "Lead Magnets", "Content Distribution", "SEO Integration"]
   }, {
     title: "Analytics & Reporting",
     description: "Gain actionable insights with comprehensive analytics that measure and improve performance.",
-    icon: BarChart,
-    color: "from-pyn-amber to-pyn-blue",
+    icon: ChartBar,
+    tone: "bg-[#F0FDF4] text-[#16A34A] ring-[#BBF7D0]",
+    dot: "bg-[#16A34A]",
     features: ["KPI Tracking", "Custom Dashboards", "Conversion Analysis", "A/B Testing", "Monthly Reports"]
   }];
   
@@ -98,8 +104,8 @@ const MarketingServices = () => {
               <Card className="h-full border-none hover:shadow-xl transition-all duration-300 bg-white hover:-translate-y-1 overflow-hidden">
                 <div className=""></div>
                 <CardHeader>
-                  <div className={`w-12 h-12 rounded-lg flex items-center justify-center mb-4 bg-gradient-to-r ${service.color}`}>
-                    <service.icon className="h-6 w-6 text-white" />
+                  <div className={`mb-4 flex h-12 w-12 items-center justify-center rounded-lg ring-1 ${service.tone}`}>
+                    <service.icon className="h-7 w-7" weight="duotone" />
                   </div>
                   <CardTitle className="text-xl">{service.title}</CardTitle>
                   <CardDescription className="text-base">{service.description}</CardDescription>
@@ -108,7 +114,7 @@ const MarketingServices = () => {
                   <ul className="space-y-2">
                     {service.features.map((feature, i) => (
                       <li key={i} className="flex items-center">
-                        <div className={`mr-2 h-1.5 w-1.5 rounded-full bg-gradient-to-r ${service.color}`}></div>
+                        <div className={`mr-2 h-1.5 w-1.5 rounded-full ${service.dot}`}></div>
                         <span>{feature}</span>
                       </li>
                     ))}

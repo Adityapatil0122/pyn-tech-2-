@@ -79,7 +79,6 @@ const IndustryCard = ({
     delay: index * 0.1
   }} className="flex flex-col h-full">
       <Card className="h-full flex flex-col transition-all duration-300 hover:shadow-lg hover:scale-[1.02] group overflow-hidden border-gray-200">
-        <div className="absolute top-0 left-0 w-full h-1 bg-pyn-blue"></div>
         <CardHeader className="pb-4">
           <div className="flex items-center gap-3 mb-2">
             <div className="p-3 rounded-full bg-pyn-blue/10 transition-colors group-hover:bg-pyn-blue/20">
