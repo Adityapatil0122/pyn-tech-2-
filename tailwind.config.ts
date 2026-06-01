@@ -32,6 +32,11 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				sans: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
+				display: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
+				mono: ['"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',

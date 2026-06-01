@@ -148,7 +148,30 @@
       radial-gradient(circle at 100% 18%, rgba(8, 3, 5, 0.13), transparent 28rem),
       linear-gradient(135deg, #fff8f9 0%, #fff1f3 48%, #f8eef0 100%);
     background-attachment: fixed;
-    font-family: 'Inter', sans-serif;
+    font-family: "Plus Jakarta Sans", Inter, system-ui, sans-serif;
+    font-optical-sizing: auto;
+    text-rendering: geometricPrecision;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  button,
+  input,
+  textarea,
+  select {
+    font-family: "Plus Jakarta Sans", Inter, system-ui, sans-serif;
+  }
+
+  code,
+  pre,
+  kbd,
+  samp,
+  .font-mono {
+    font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   }
 
   .dropdown-menu {
