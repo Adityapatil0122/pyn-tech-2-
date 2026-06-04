@@ -1,29 +1,36 @@
 
 import React from "react";
-import { CheckCircle, MessageCircle, Shield, Users, Clock, BarChart } from "lucide-react";
+import { CheckCircle, ChatCircle, Shield, Users, Clock, ChartBar } from "@phosphor-icons/react";
+import ColorfulIcon from "@/components/icons/ColorfulIcon";
 
 const benefits = [{
-  icon: MessageCircle,
+  icon: ChatCircle,
+  palette: "mint" as const,
   title: "Automated Responses",
   description: "Set up automated replies for common queries and provide instant support to your customers 24/7."
 }, {
   icon: Shield,
+  palette: "lime" as const,
   title: "Official Verification",
   description: "Get the coveted green tick mark that establishes your business's authenticity on WhatsApp."
 }, {
   icon: Users,
+  palette: "sky" as const,
   title: "Multiple Users",
   description: "Enable your entire team to handle customer conversations from a single business account."
 }, {
   icon: Clock,
+  palette: "sunset" as const,
   title: "24/7 Availability",
   description: "Stay connected with your customers round the clock with automated messaging systems."
 }, {
-  icon: BarChart,
+  icon: ChartBar,
+  palette: "ocean" as const,
   title: "Analytics Dashboard",
   description: "Track message metrics, response times, and customer engagement with detailed analytics."
 }, {
   icon: CheckCircle,
+  palette: "violet" as const,
   title: "Template Messages",
   description: "Create and send approved message templates for marketing and transactional communications."
 }];
@@ -42,9 +49,7 @@ const BusinessBenefits = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
           {benefits.map((benefit, index) => <div key={index} className="bg-white p-4 md:p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
-              <div className="bg-[#25D366]/10 w-10 h-10 md:w-12 md:h-12 rounded-lg flex items-center justify-center mb-4">
-                <benefit.icon className="w-5 h-5 md:w-6 md:h-6 text-[#128C7E]" />
-              </div>
+              <ColorfulIcon icon={benefit.icon} palette={benefit.palette} className="mb-4 h-10 w-10 md:h-12 md:w-12" />
               <h3 className="text-lg md:text-xl font-semibold mb-2">{benefit.title}</h3>
               <p className="text-sm md:text-base text-gray-600">{benefit.description}</p>
             </div>)}

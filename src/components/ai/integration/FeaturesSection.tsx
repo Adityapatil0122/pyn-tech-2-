@@ -2,37 +2,50 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
-import { Code, Link, Layers, ServerCog, Shield, Zap } from "lucide-react";
+import { Code, Link, Stack, Gear, Shield, Lightning } from "@phosphor-icons/react";
+import ColorfulIcon from "@/components/icons/ColorfulIcon";
 
 export const FeaturesSection = () => {
   const features = [
     {
       icon: Code,
+      weight: "duotone" as const,
+      palette: "ocean" as const,
       title: "Seamless API Connectivity",
       description: "Connect your systems with our robust APIs designed for reliability and performance with clear documentation."
     },
     {
-      icon: ServerCog,
+      icon: Gear,
+      weight: "duotone" as const,
+      palette: "violet" as const,
       title: "Custom Integration Solutions",
       description: "Tailor-made integration services that adapt to your existing infrastructure and business processes."
     },
     {
-      icon: Layers,
+      icon: Stack,
+      weight: "duotone" as const,
+      palette: "sky" as const,
       title: "Scalable Architecture",
       description: "Build solutions that grow with your business, handling increased loads without compromising performance."
     },
     {
       icon: Link,
+      weight: "bold" as const,
+      palette: "mint" as const,
       title: "Third-party Service Integration",
       description: "Connect with popular AI services like OpenAI, Google AI, and Microsoft Azure AI with pre-built connectors."
     },
     {
       icon: Shield,
+      weight: "duotone" as const,
+      palette: "graphite" as const,
       title: "Enterprise-grade Security",
       description: "Secure your data and connections with advanced encryption, authentication, and authorization protocols."
     },
     {
-      icon: Zap,
+      icon: Lightning,
+      weight: "duotone" as const,
+      palette: "sunset" as const,
       title: "Real-time Data Processing",
       description: "Process and analyze data in real-time, enabling instant insights and faster decision-making."
     }
@@ -66,9 +79,13 @@ export const FeaturesSection = () => {
             >
               <Card className="border-none shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full bg-white">
                 <CardContent className="p-8">
-                  <div className="w-14 h-14 bg-pyn-blue/10 rounded-xl flex items-center justify-center mb-6">
-                    <feature.icon className="h-7 w-7 text-pyn-blue" />
-                  </div>
+                  <ColorfulIcon
+                    icon={feature.icon}
+                    palette={feature.palette}
+                    weight={feature.weight}
+                    className="mb-6 h-14 w-14 rounded-xl"
+                    iconClassName="h-7 w-7"
+                  />
                   <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
                   <p className="text-gray-600">{feature.description}</p>
                 </CardContent>

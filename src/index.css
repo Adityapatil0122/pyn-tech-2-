@@ -35,19 +35,12 @@
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 203 60% 39%;
   }
 
@@ -98,7 +91,7 @@
     }
   }
 
-@keyframes counterRotate {
+  @keyframes counterRotate {
     0% {
       transform: rotateX(0deg);
       opacity: 0;
@@ -109,24 +102,6 @@
     100% {
       transform: rotateX(360deg);
       opacity: 1;
-    }
-  }
-
-  @keyframes clientMarquee {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-50%);
-    }
-  }
-
-  @keyframes clientMarqueeReverse {
-    from {
-      transform: translateX(-50%);
-    }
-    to {
-      transform: translateX(0);
     }
   }
 
@@ -148,13 +123,11 @@
     @apply bg-background text-foreground;
     min-height: 100vh;
     background:
-      radial-gradient(circle at 6% 0%, rgba(40, 114, 161, 0.22), transparent 30rem),
-      radial-gradient(circle at 100% 18%, rgba(203, 221, 233, 0.44), transparent 28rem),
+      radial-gradient(circle at 6% 0%, rgba(40, 114, 161, 0.18), transparent 30rem),
+      radial-gradient(circle at 100% 18%, rgba(203, 221, 233, 0.34), transparent 28rem),
       linear-gradient(135deg, #f7fbfd 0%, #eaf4fa 48%, #cbdde9 100%);
-    background-attachment: fixed;
     font-family: "Plus Jakarta Sans", Inter, system-ui, sans-serif;
     font-optical-sizing: auto;
-    text-rendering: geometricPrecision;
     overflow-x: hidden;
   }
 
@@ -182,17 +155,6 @@
   samp,
   .font-mono {
     font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  }
-
-  .dropdown-menu {
-    @apply invisible opacity-0 translate-y-2 scale-95 transition-all duration-300 ease-out;
-    transform-origin: top left;
-    will-change: opacity, transform;
-  }
-
-  .dropdown:hover .dropdown-menu,
-  .dropdown:focus-within .dropdown-menu {
-    @apply visible opacity-100 translate-y-0 scale-100;
   }
 
   .service-card {
@@ -225,31 +187,14 @@
   background-size: 20px 20px;
 }
 
-.animate-client-marquee {
-  animation: clientMarquee 34s linear infinite;
-}
-
-.animate-client-marquee-reverse {
-  animation: clientMarqueeReverse 38s linear infinite;
-}
-
-.animate-client-marquee:hover,
-.animate-client-marquee-reverse:hover {
-  animation-play-state: paused;
-}
-
 .bg-white,
 .bg-card,
 .bg-popover {
-  background-color: rgba(255, 255, 255, 0.78) !important;
-  backdrop-filter: blur(18px) saturate(135%);
-  -webkit-backdrop-filter: blur(18px) saturate(135%);
+  background-color: rgba(255, 255, 255, 0.96) !important;
 }
 
 .bg-pyn-gray {
-  background-color: rgba(243, 248, 251, 0.72) !important;
-  backdrop-filter: blur(18px) saturate(135%);
-  -webkit-backdrop-filter: blur(18px) saturate(135%);
+  background-color: rgba(243, 248, 251, 0.94) !important;
 }
 
 .border-gray-100,
@@ -266,4 +211,500 @@
 .shadow-2xl {
   --tw-shadow-color: rgba(6, 28, 43, 0.12);
   --tw-shadow: var(--tw-shadow-colored);
+}
+
+.pyn-cta-gradient {
+  background:
+    radial-gradient(ellipse 120% 80% at 15% 20%, rgba(40, 114, 161, 0.9), transparent 60%),
+    radial-gradient(ellipse 100% 100% at 85% 80%, rgba(14, 70, 102, 0.95), transparent 55%),
+    radial-gradient(ellipse 80% 60% at 50% 50%, rgba(6, 28, 43, 0.8), transparent 65%),
+    linear-gradient(135deg, #061C2B 0%, #0E4666 35%, #2872A1 70%, #174B6F 100%);
+}
+
+.pyn-cta-wrapper {
+  box-shadow:
+    0 0 0 1px rgba(40, 114, 161, 0.25),
+    0 4px 24px -4px rgba(6, 28, 43, 0.35),
+    0 16px 64px -8px rgba(40, 114, 161, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.pyn-cta-orb-1 {
+  background: radial-gradient(circle, rgba(40, 114, 161, 0.35) 0%, transparent 70%);
+  filter: blur(24px);
+}
+
+.pyn-cta-orb-2 {
+  background: radial-gradient(circle, rgba(167, 208, 230, 0.2) 0%, transparent 70%);
+  filter: blur(28px);
+}
+
+.pyn-cta-orb-3 {
+  background: radial-gradient(circle, rgba(40, 114, 161, 0.15) 0%, transparent 70%);
+  filter: blur(22px);
+}
+
+.pyn-cta-ring {
+  border: 1.5px solid rgba(167, 208, 230, 0.18);
+  box-shadow: 0 0 40px rgba(40, 114, 161, 0.15), inset 0 0 30px rgba(40, 114, 161, 0.1);
+}
+
+.pyn-cta-dot {
+  opacity: 0.45;
+}
+
+.pyn-cta-dot-delay {
+  opacity: 0.35;
+}
+
+.pyn-cta-eyebrow {
+  box-shadow: 0 0 20px rgba(167, 208, 230, 0.12), inset 0 0 12px rgba(255, 255, 255, 0.05);
+}
+
+.pyn-cta-btn-primary {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pyn-cta-btn-primary:hover {
+  box-shadow:
+    0 8px 32px rgba(40, 114, 161, 0.35),
+    0 0 0 1px rgba(40, 114, 161, 0.15);
+}
+
+.pyn-cta-btn-secondary {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pyn-cta-btn-secondary:hover {
+  box-shadow: 0 4px 24px rgba(167, 208, 230, 0.2);
+}
+
+.colorful-icons {
+  --icon-gradient: url("#pyn-icon-gradient-blue");
+  --icon-fallback: #2563eb;
+  --icon-glow: rgba(37, 99, 235, 0.24);
+}
+
+.colorful-icons :where(section:nth-of-type(8n + 1), article:nth-of-type(8n + 1), footer) {
+  --icon-gradient: url("#pyn-icon-gradient-blue");
+  --icon-fallback: #0891b2;
+  --icon-glow: rgba(8, 145, 178, 0.26);
+}
+
+.colorful-icons :where(section:nth-of-type(8n + 2), article:nth-of-type(8n + 2), nav) {
+  --icon-gradient: url("#pyn-icon-gradient-green");
+  --icon-fallback: #059669;
+  --icon-glow: rgba(5, 150, 105, 0.26);
+}
+
+.colorful-icons :where(section:nth-of-type(8n + 3), article:nth-of-type(8n + 3), aside) {
+  --icon-gradient: url("#pyn-icon-gradient-violet");
+  --icon-fallback: #7c3aed;
+  --icon-glow: rgba(124, 58, 237, 0.26);
+}
+
+.colorful-icons :where(section:nth-of-type(8n + 4), article:nth-of-type(8n + 4)) {
+  --icon-gradient: url("#pyn-icon-gradient-rose");
+  --icon-fallback: #e11d48;
+  --icon-glow: rgba(225, 29, 72, 0.26);
+}
+
+.colorful-icons :where(section:nth-of-type(8n + 5), article:nth-of-type(8n + 5)) {
+  --icon-gradient: url("#pyn-icon-gradient-amber");
+  --icon-fallback: #d97706;
+  --icon-glow: rgba(217, 119, 6, 0.26);
+}
+
+.colorful-icons :where(section:nth-of-type(8n + 6), article:nth-of-type(8n + 6)) {
+  --icon-gradient: url("#pyn-icon-gradient-sky");
+  --icon-fallback: #0284c7;
+  --icon-glow: rgba(2, 132, 199, 0.26);
+}
+
+.colorful-icons :where(section:nth-of-type(8n + 7), article:nth-of-type(8n + 7)) {
+  --icon-gradient: url("#pyn-icon-gradient-violet");
+  --icon-fallback: #c026d3;
+  --icon-glow: rgba(192, 38, 211, 0.26);
+}
+
+.colorful-icons :where(
+  .grid > *:nth-child(8n + 1),
+  .flex > *:nth-child(8n + 1),
+  li:nth-child(8n + 1)
+) {
+  --icon-gradient: url("#pyn-icon-gradient-blue");
+  --icon-fallback: #2563eb;
+  --icon-glow: rgba(37, 99, 235, 0.24);
+}
+
+.colorful-icons :where(
+  .grid > *:nth-child(8n + 2),
+  .flex > *:nth-child(8n + 2),
+  li:nth-child(8n + 2)
+) {
+  --icon-gradient: url("#pyn-icon-gradient-green");
+  --icon-fallback: #059669;
+  --icon-glow: rgba(5, 150, 105, 0.24);
+}
+
+.colorful-icons :where(
+  .grid > *:nth-child(8n + 3),
+  .flex > *:nth-child(8n + 3),
+  li:nth-child(8n + 3)
+) {
+  --icon-gradient: url("#pyn-icon-gradient-violet");
+  --icon-fallback: #7c3aed;
+  --icon-glow: rgba(124, 58, 237, 0.24);
+}
+
+.colorful-icons :where(
+  .grid > *:nth-child(8n + 4),
+  .flex > *:nth-child(8n + 4),
+  li:nth-child(8n + 4)
+) {
+  --icon-gradient: url("#pyn-icon-gradient-amber");
+  --icon-fallback: #d97706;
+  --icon-glow: rgba(217, 119, 6, 0.24);
+}
+
+.colorful-icons :where(
+  .grid > *:nth-child(8n + 5),
+  .flex > *:nth-child(8n + 5),
+  li:nth-child(8n + 5)
+) {
+  --icon-gradient: url("#pyn-icon-gradient-rose");
+  --icon-fallback: #e11d48;
+  --icon-glow: rgba(225, 29, 72, 0.24);
+}
+
+.colorful-icons :where(
+  .grid > *:nth-child(8n + 6),
+  .flex > *:nth-child(8n + 6),
+  li:nth-child(8n + 6)
+) {
+  --icon-gradient: url("#pyn-icon-gradient-sky");
+  --icon-fallback: #0284c7;
+  --icon-glow: rgba(2, 132, 199, 0.24);
+}
+
+.colorful-icons :where(
+  .grid > *:nth-child(8n + 7),
+  .flex > *:nth-child(8n + 7),
+  li:nth-child(8n + 7)
+) {
+  --icon-gradient: url("#pyn-icon-gradient-violet");
+  --icon-fallback: #c026d3;
+  --icon-glow: rgba(192, 38, 211, 0.24);
+}
+
+.colorful-icons :where(
+  .grid > *:nth-child(8n + 8),
+  .flex > *:nth-child(8n + 8),
+  li:nth-child(8n + 8)
+) {
+  --icon-gradient: url("#pyn-icon-gradient-green");
+  --icon-fallback: #0d9488;
+  --icon-glow: rgba(13, 148, 136, 0.24);
+}
+
+.colorful-icons :where(
+  svg.size-3,
+  svg.size-3\.5,
+  svg.size-4,
+  svg.size-5,
+  svg.size-6,
+  svg.h-3,
+  svg.h-3\.5,
+  svg.h-4,
+  svg.h-5,
+  svg.h-6,
+  svg.h-7,
+  svg.h-8,
+  svg.h-9,
+  svg.h-10,
+  svg.h-11,
+  svg.h-12,
+  svg.h-14,
+  svg.h-16,
+  svg.w-3,
+  svg.w-3\.5,
+  svg.w-4,
+  svg.w-5,
+  svg.w-6,
+  svg.w-7,
+  svg.w-8,
+  svg.w-9,
+  svg.w-10,
+  svg.w-11,
+  svg.w-12,
+  svg.w-14,
+  svg.w-16,
+  svg[width="12"],
+  svg[width="14"],
+  svg[width="16"],
+  svg[width="18"],
+  svg[width="20"],
+  svg[width="22"],
+  svg[width="24"],
+  svg[width="28"],
+  svg[width="32"],
+  svg[width="36"],
+  svg[width="40"],
+  svg[width="48"],
+  svg[width="56"],
+  svg[width="64"]
+):not(.animate-spin):not([data-preserve-color]) {
+  color: var(--icon-fallback) !important;
+  filter: drop-shadow(0 6px 12px var(--icon-glow));
+}
+
+.colorful-icons :where(
+  svg.size-3,
+  svg.size-3\.5,
+  svg.size-4,
+  svg.size-5,
+  svg.size-6,
+  svg.h-3,
+  svg.h-3\.5,
+  svg.h-4,
+  svg.h-5,
+  svg.h-6,
+  svg.h-7,
+  svg.h-8,
+  svg.h-9,
+  svg.h-10,
+  svg.h-11,
+  svg.h-12,
+  svg.h-14,
+  svg.h-16,
+  svg.w-3,
+  svg.w-3\.5,
+  svg.w-4,
+  svg.w-5,
+  svg.w-6,
+  svg.w-7,
+  svg.w-8,
+  svg.w-9,
+  svg.w-10,
+  svg.w-11,
+  svg.w-12,
+  svg.w-14,
+  svg.w-16,
+  svg[width="12"],
+  svg[width="14"],
+  svg[width="16"],
+  svg[width="18"],
+  svg[width="20"],
+  svg[width="22"],
+  svg[width="24"],
+  svg[width="28"],
+  svg[width="32"],
+  svg[width="36"],
+  svg[width="40"],
+  svg[width="48"],
+  svg[width="56"],
+  svg[width="64"]
+):not(.animate-spin):not([data-preserve-color])[fill]:not([fill="none"]) {
+  fill: var(--icon-gradient) !important;
+}
+
+.colorful-icons :where(
+  svg.size-3,
+  svg.size-3\.5,
+  svg.size-4,
+  svg.size-5,
+  svg.size-6,
+  svg.h-3,
+  svg.h-3\.5,
+  svg.h-4,
+  svg.h-5,
+  svg.h-6,
+  svg.h-7,
+  svg.h-8,
+  svg.h-9,
+  svg.h-10,
+  svg.h-11,
+  svg.h-12,
+  svg.h-14,
+  svg.h-16,
+  svg.w-3,
+  svg.w-3\.5,
+  svg.w-4,
+  svg.w-5,
+  svg.w-6,
+  svg.w-7,
+  svg.w-8,
+  svg.w-9,
+  svg.w-10,
+  svg.w-11,
+  svg.w-12,
+  svg.w-14,
+  svg.w-16,
+  svg[width="12"],
+  svg[width="14"],
+  svg[width="16"],
+  svg[width="18"],
+  svg[width="20"],
+  svg[width="22"],
+  svg[width="24"],
+  svg[width="28"],
+  svg[width="32"],
+  svg[width="36"],
+  svg[width="40"],
+  svg[width="48"],
+  svg[width="56"],
+  svg[width="64"]
+):not(.animate-spin):not([data-preserve-color])[stroke]:not([stroke="none"]) {
+  stroke: var(--icon-gradient) !important;
+}
+
+.colorful-icons :where(
+  svg.size-3,
+  svg.size-3\.5,
+  svg.size-4,
+  svg.size-5,
+  svg.size-6,
+  svg.h-3,
+  svg.h-3\.5,
+  svg.h-4,
+  svg.h-5,
+  svg.h-6,
+  svg.h-7,
+  svg.h-8,
+  svg.h-9,
+  svg.h-10,
+  svg.h-11,
+  svg.h-12,
+  svg.h-14,
+  svg.h-16,
+  svg.w-3,
+  svg.w-3\.5,
+  svg.w-4,
+  svg.w-5,
+  svg.w-6,
+  svg.w-7,
+  svg.w-8,
+  svg.w-9,
+  svg.w-10,
+  svg.w-11,
+  svg.w-12,
+  svg.w-14,
+  svg.w-16,
+  svg[width="12"],
+  svg[width="14"],
+  svg[width="16"],
+  svg[width="18"],
+  svg[width="20"],
+  svg[width="22"],
+  svg[width="24"],
+  svg[width="28"],
+  svg[width="32"],
+  svg[width="36"],
+  svg[width="40"],
+  svg[width="48"],
+  svg[width="56"],
+  svg[width="64"]
+):not(.animate-spin):not([data-preserve-color]) :where([fill]):not([fill="none"]) {
+  fill: var(--icon-gradient) !important;
+}
+
+.colorful-icons :where(
+  svg.size-3,
+  svg.size-3\.5,
+  svg.size-4,
+  svg.size-5,
+  svg.size-6,
+  svg.h-3,
+  svg.h-3\.5,
+  svg.h-4,
+  svg.h-5,
+  svg.h-6,
+  svg.h-7,
+  svg.h-8,
+  svg.h-9,
+  svg.h-10,
+  svg.h-11,
+  svg.h-12,
+  svg.h-14,
+  svg.h-16,
+  svg.w-3,
+  svg.w-3\.5,
+  svg.w-4,
+  svg.w-5,
+  svg.w-6,
+  svg.w-7,
+  svg.w-8,
+  svg.w-9,
+  svg.w-10,
+  svg.w-11,
+  svg.w-12,
+  svg.w-14,
+  svg.w-16,
+  svg[width="12"],
+  svg[width="14"],
+  svg[width="16"],
+  svg[width="18"],
+  svg[width="20"],
+  svg[width="22"],
+  svg[width="24"],
+  svg[width="28"],
+  svg[width="32"],
+  svg[width="36"],
+  svg[width="40"],
+  svg[width="48"],
+  svg[width="56"],
+  svg[width="64"]
+):not(.animate-spin):not([data-preserve-color]) :where([stroke]):not([stroke="none"]) {
+  stroke: var(--icon-gradient) !important;
+}
+
+.colorful-icons :where(a, button):hover :where(
+  svg.size-3,
+  svg.size-3\.5,
+  svg.size-4,
+  svg.size-5,
+  svg.size-6,
+  svg.h-3,
+  svg.h-3\.5,
+  svg.h-4,
+  svg.h-5,
+  svg.h-6,
+  svg.h-7,
+  svg.h-8,
+  svg.h-9,
+  svg.h-10,
+  svg.h-11,
+  svg.h-12,
+  svg.h-14,
+  svg.h-16,
+  svg.w-3,
+  svg.w-3\.5,
+  svg.w-4,
+  svg.w-5,
+  svg.w-6,
+  svg.w-7,
+  svg.w-8,
+  svg.w-9,
+  svg.w-10,
+  svg.w-11,
+  svg.w-12,
+  svg.w-14,
+  svg.w-16,
+  svg[width="12"],
+  svg[width="14"],
+  svg[width="16"],
+  svg[width="18"],
+  svg[width="20"],
+  svg[width="22"],
+  svg[width="24"],
+  svg[width="28"],
+  svg[width="32"],
+  svg[width="36"],
+  svg[width="40"],
+  svg[width="48"],
+  svg[width="56"],
+  svg[width="64"]
+):not(.animate-spin):not([data-preserve-color]) {
+  filter: drop-shadow(0 8px 16px var(--icon-glow)) saturate(1.18);
+  transform: translateY(-1px);
 }

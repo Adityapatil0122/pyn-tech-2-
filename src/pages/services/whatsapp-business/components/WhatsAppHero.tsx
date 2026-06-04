@@ -1,6 +1,6 @@
 
 import React from "react";
-import { MessageCircle, Shield, Users, CheckCircle } from "lucide-react";
+import { ChatCircle, Shield, Users, CheckCircle } from "@phosphor-icons/react";
 import { Button } from "@/components/ui/button";
 
 const WhatsAppHero = () => {
@@ -9,10 +9,10 @@ const WhatsAppHero = () => {
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
           <div className="flex-1 space-y-6 w-full">
             <div className="space-y-4">
-              <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900">
+              <h1 className="text-3xl font-bold leading-tight text-gray-900 md:text-4xl lg:text-5xl xl:text-6xl">
                 WhatsApp Business API
-                <span className="inline-flex items-center md:ml-3 mt-2 md:mt-0 bg-[#25D366] text-white px-3 py-1 rounded-full text-sm">
-                  <CheckCircle className="w-4 h-4 mr-1" />
+                <span className="mt-3 flex w-fit items-center rounded-full bg-[#25D366] px-3 py-1 text-sm text-white md:ml-3 md:mt-0 md:inline-flex">
+                  <CheckCircle weight="fill" className="w-4 h-4 mr-1" />
                   Official Partner
                 </span>
               </h1>
@@ -22,16 +22,16 @@ const WhatsAppHero = () => {
             </div>
 
             <div className="flex flex-wrap gap-4 mt-6 md:mt-8">
-              <Button size="lg" className="bg-[#25D366] hover:bg-[#128C7E] text-white" onClick={() => window.dispatchEvent(new CustomEvent('open-contact'))}>
+              <Button size="lg" className="w-full bg-[#25D366] text-white hover:bg-[#128C7E] sm:w-auto" onClick={() => window.dispatchEvent(new CustomEvent('open-contact'))}>
                 Get Started
-                <MessageCircle className="ml-2 h-5 w-5" />
+                <ChatCircle weight="duotone" className="ml-2 h-5 w-5" />
               </Button>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 mt-10 md:mt-12">
               <div className="flex items-center gap-3">
                 <div className="bg-[#25D366]/10 p-2 rounded-lg">
-                  <Shield className="w-5 h-5 md:w-6 md:h-6 text-[#128C7E]" />
+                  <Shield weight="duotone" className="w-5 h-5 md:w-6 md:h-6 text-[#128C7E]" />
                 </div>
                 <div>
                   <p className="font-semibold">Official API</p>
@@ -40,7 +40,7 @@ const WhatsAppHero = () => {
               </div>
               <div className="flex items-center gap-3">
                 <div className="bg-[#25D366]/10 p-2 rounded-lg">
-                  <Users className="w-5 h-5 md:w-6 md:h-6 text-[#128C7E]" />
+                  <Users weight="duotone" className="w-5 h-5 md:w-6 md:h-6 text-[#128C7E]" />
                 </div>
                 <div>
                   <p className="font-semibold">98 %</p>
@@ -49,7 +49,7 @@ const WhatsAppHero = () => {
               </div>
               <div className="flex items-center gap-3">
                 <div className="bg-[#25D366]/10 p-2 rounded-lg">
-                  <MessageCircle className="w-5 h-5 md:w-6 md:h-6 text-[#128C7E]" />
+                  <ChatCircle weight="duotone" className="w-5 h-5 md:w-6 md:h-6 text-[#128C7E]" />
                 </div>
                 <div>
                   <p className="font-semibold">24/7</p>
@@ -64,7 +64,7 @@ const WhatsAppHero = () => {
               <div className="bg-[#128C7E] text-white p-2 md:p-3 rounded-t-lg">
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 md:w-10 md:h-10 bg-white rounded-full flex items-center justify-center">
-                    <MessageCircle className="w-5 h-5 md:w-6 md:h-6 text-[#128C7E]" />
+                    <ChatCircle weight="duotone" className="w-5 h-5 md:w-6 md:h-6 text-[#128C7E]" />
                   </div>
                   <div>
                     <p className="font-semibold text-sm md:text-base">Business Messages</p>

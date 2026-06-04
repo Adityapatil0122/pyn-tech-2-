@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Send } from "lucide-react";
+import { PaperPlaneTilt } from "@phosphor-icons/react";
 import { contactFormSchema, type ContactFormValues } from "./schema";
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
@@ -53,7 +53,7 @@ export const ContactForm = ({ onSubmit, isSubmitting }: ContactFormProps) => {
           )}
         />
         
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <FormField
             control={form.control}
             name="email"
@@ -187,7 +187,7 @@ export const ContactForm = ({ onSubmit, isSubmitting }: ContactFormProps) => {
             </span>
           ) : (
             <span className="flex items-center justify-center">
-              <Send className="mr-2 h-4 w-4" /> Send Message
+              <PaperPlaneTilt weight="fill" className="mr-2 h-4 w-4" /> Send Message
             </span>
           )}
         </Button>

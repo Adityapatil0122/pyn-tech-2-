@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Browser, DeviceMobile, FileCode, GearSix, MagnifyingGlass, ShoppingCartSimple } from "@phosphor-icons/react";
+import ColorfulIcon from "@/components/icons/ColorfulIcon";
 
 const WhatWeOffer = () => {
   const services = [
@@ -10,7 +11,7 @@ const WhatWeOffer = () => {
       title: "Custom Website Development",
       description: "Tailor-made websites designed specifically for your business needs. We create unique, high-performance websites that align with your brand and business objectives.",
       features: ["Custom UI/UX Design", "Scalable Architecture", "Performance Optimization", "Brand Integration", "Custom Functionality"],
-      tone: "bg-[#EAF4FA] text-[#2872A1] ring-[#CBDDE9]",
+      palette: "ocean" as const,
       dot: "bg-[#2872A1]"
     }, 
     {
@@ -18,7 +19,7 @@ const WhatWeOffer = () => {
       title: "eCommerce Solutions",
       description: "Comprehensive online store development with secure payment gateways, inventory management, and user-friendly interfaces to maximize your sales potential.",
       features: ["Secure Payment Integration", "Inventory Management", "Order Processing", "Customer Accounts", "Analytics Integration"],
-      tone: "bg-[#FDF2F8] text-[#DB2777] ring-[#FBCFE8]",
+      palette: "rose" as const,
       dot: "bg-[#DB2777]"
     }, 
     {
@@ -26,7 +27,7 @@ const WhatWeOffer = () => {
       title: "WordPress Development",
       description: "Expert WordPress website creation with custom themes, plugins, and optimizations. We build flexible, scalable WordPress solutions that are easy to manage.",
       features: ["Custom Theme Development", "Plugin Integration", "Performance Tuning", "Security Hardening", "Content Management"],
-      tone: "bg-[#EEF2FF] text-[#4F46E5] ring-[#C7D2FE]",
+      palette: "violet" as const,
       dot: "bg-[#4F46E5]"
     }, 
     {
@@ -34,7 +35,7 @@ const WhatWeOffer = () => {
       title: "Responsive Design",
       description: "Mobile-first websites that provide seamless experiences across all devices. Our responsive designs ensure your site looks and functions perfectly on any screen size.",
       features: ["Mobile-First Design", "Cross-Device Testing", "Performance Optimization", "Touch-Friendly Interface", "Flexible Layouts"],
-      tone: "bg-[#ECFEFF] text-[#0E7490] ring-[#A5F3FC]",
+      palette: "sky" as const,
       dot: "bg-[#0E7490]"
     }, 
     {
@@ -42,7 +43,7 @@ const WhatWeOffer = () => {
       title: "SEO-Friendly Websites",
       description: "Websites built with search engine optimization in mind, including proper structure, fast loading speeds, and clean code to help improve your search rankings.",
       features: ["SEO Best Practices", "Fast Loading Speed", "Schema Markup", "Clean Code Structure", "Performance Metrics"],
-      tone: "bg-[#F0FDF4] text-[#16A34A] ring-[#BBF7D0]",
+      palette: "mint" as const,
       dot: "bg-[#16A34A]"
     }, 
     {
@@ -50,7 +51,7 @@ const WhatWeOffer = () => {
       title: "Website Maintenance",
       description: "Ongoing support and maintenance services to keep your website secure, updated, and performing at its best through regular monitoring and updates.",
       features: ["Regular Updates", "Security Monitoring", "Performance Optimization", "Backup Management", "Technical Support"],
-      tone: "bg-[#FFF7ED] text-[#EA580C] ring-[#FED7AA]",
+      palette: "sunset" as const,
       dot: "bg-[#EA580C]"
     }
   ];
@@ -92,9 +93,7 @@ const WhatWeOffer = () => {
             <motion.div key={index} variants={item}>
               <Card className="h-full border-none hover:shadow-xl transition-all duration-300 bg-white hover:-translate-y-1 overflow-hidden">
                 <CardHeader>
-                  <div className={`mb-4 flex h-12 w-12 items-center justify-center rounded-lg ring-1 ${service.tone}`}>
-                    <service.icon className="h-7 w-7" weight="duotone" />
-                  </div>
+                  <ColorfulIcon icon={service.icon} palette={service.palette} className="mb-4" iconClassName="h-7 w-7" />
                   
                   <CardTitle className="text-xl">{service.title}</CardTitle>
                   <CardDescription className="text-base">{service.description}</CardDescription>

@@ -1,37 +1,44 @@
 
-import { GraduationCap, Users, CreditCard, CalendarCheck, Bell, Layout } from "lucide-react";
+import { GraduationCap, Users, CreditCard, CalendarCheck, Bell, Layout } from "@phosphor-icons/react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import ColorfulIcon from "@/components/icons/ColorfulIcon";
 
 const StudyRoomManagement = () => {
   const features = [
     {
-      icon: <Users className="h-6 w-6 text-pyn-blue" />,
+      icon: Users,
+      palette: "ocean" as const,
       title: "Student Management",
       description: "Efficiently manage student profiles, attendance, and performance tracking"
     },
     {
-      icon: <CreditCard className="h-6 w-6 text-pyn-blue" />,
+      icon: CreditCard,
+      palette: "mint" as const,
       title: "Fee Management",
       description: "Streamline fee collection, generate receipts, and track payment history"
     },
     {
-      icon: <Layout className="h-6 w-6 text-pyn-blue" />,
+      icon: Layout,
+      palette: "violet" as const,
       title: "Seat Management",
       description: "Monitor and manage seat allocation, availability, and reservations"
     },
     {
-      icon: <Bell className="h-6 w-6 text-pyn-blue" />,
+      icon: Bell,
+      palette: "sunset" as const,
       title: "Notifications & Reminders",
       description: "Automated alerts for fee dues, renewals, and important announcements"
     },
     {
-      icon: <CalendarCheck className="h-6 w-6 text-pyn-blue" />,
+      icon: CalendarCheck,
+      palette: "sky" as const,
       title: "Renewal Management",
       description: "Handle subscription renewals and membership extensions seamlessly"
     },
     {
-      icon: <GraduationCap className="h-6 w-6 text-pyn-blue" />,
+      icon: GraduationCap,
+      palette: "lime" as const,
       title: "Admin Dashboard",
       description: "Comprehensive dashboard for monitoring and managing all operations"
     }
@@ -62,9 +69,7 @@ const StudyRoomManagement = () => {
             {features.map((feature, index) => (
               <Card key={index} className="p-6 hover:shadow-lg transition-shadow before:hidden shadow-md">
                 <div className="flex flex-col items-start">
-                  <div className="mb-4 p-2 bg-pyn-blue/10 rounded-lg">
-                    {feature.icon}
-                  </div>
+                  <ColorfulIcon icon={feature.icon} palette={feature.palette} className="mb-4" />
                   <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
                   <p className="text-gray-600">{feature.description}</p>
                 </div>

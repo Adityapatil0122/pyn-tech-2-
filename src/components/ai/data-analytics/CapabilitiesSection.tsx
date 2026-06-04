@@ -1,8 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
-import { ChartLine, BarChart, Search, Code, Brain, Zap } from "lucide-react";
+import { ChartLine, ChartBar, MagnifyingGlass, Code, Brain, Lightning } from "@phosphor-icons/react";
 import { Badge } from "@/components/ui/badge";
+import ColorfulIcon from "@/components/icons/ColorfulIcon";
 export const CapabilitiesSection = () => {
   const fadeIn = {
     hidden: {
@@ -45,32 +46,32 @@ export const CapabilitiesSection = () => {
     title: "Predictive Analytics",
     description: "Leverage machine learning to forecast trends, anticipate customer behavior, and predict future outcomes with remarkable accuracy.",
     icon: ChartLine,
-    color: "bg-pyn-gray text-pyn-blue"
+    palette: "ocean" as const
   }, {
     title: "Business Intelligence",
     description: "Transform complex data into actionable insights with interactive dashboards, visual reports, and intelligent alerts.",
-    icon: BarChart,
-    color: "bg-pyn-amber/10 text-pyn-darkBlue"
+    icon: ChartBar,
+    palette: "sunset" as const
   }, {
     title: "Pattern Recognition",
     description: "Identify hidden patterns and correlations in your data that drive business performance, growth, and customer satisfaction.",
-    icon: Search,
-    color: "bg-emerald-50 text-emerald-600"
+    icon: MagnifyingGlass,
+    palette: "mint" as const
   }, {
     title: "Custom Reporting",
     description: "Create tailored reports that focus on your most important KPIs and business metrics with automated data pipelines.",
     icon: Code,
-    color: "bg-pyn-lightBlue/20 text-pyn-darkBlue"
+    palette: "sky" as const
   }, {
     title: "Natural Language Processing",
     description: "Extract insights from unstructured text data including customer feedback, social media, and support interactions.",
     icon: Brain,
-    color: "bg-pyn-amber/10 text-pyn-blue"
+    palette: "violet" as const
   }, {
     title: "Real-time Analytics",
     description: "Monitor business metrics in real-time with streaming analytics and instant notifications on critical changes.",
-    icon: Zap,
-    color: "bg-pyn-blue/10 text-pyn-blue"
+    icon: Lightning,
+    palette: "lime" as const
   }];
   return <motion.section initial="hidden" whileInView="visible" viewport={{
     once: true,
@@ -90,9 +91,7 @@ export const CapabilitiesSection = () => {
         {capabilities.map((capability, index) => <motion.div key={index} variants={item}>
             <Card className="border-slate-200 h-full hover:shadow-md transition-all duration-300">
               <CardContent className="p-6">
-                <div className={`w-14 h-14 rounded-xl ${capability.color} flex items-center justify-center mb-5`}>
-                  <capability.icon className="h-7 w-7" />
-                </div>
+                <ColorfulIcon icon={capability.icon} palette={capability.palette} className="mb-5 h-14 w-14 rounded-xl" iconClassName="h-7 w-7" />
                 <h3 className="text-xl font-semibold text-slate-900 mb-3">{capability.title}</h3>
                 <p className="text-slate-600">{capability.description}</p>
               </CardContent>

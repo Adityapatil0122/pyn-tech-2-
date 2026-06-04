@@ -2,15 +2,15 @@ import { FormEvent, KeyboardEvent, useEffect, useMemo, useRef, useState } from "
 import { Link, useLocation } from "react-router-dom";
 import {
   ArrowRight,
-  Bot,
-  CalendarDays,
-  CheckCircle2,
-  MessageCircle,
-  Send,
-  Sparkles,
+  CalendarDots,
+  ChatCircle,
+  CheckCircle,
+  PaperPlaneTilt,
+  Robot,
+  Sparkle,
   User,
   X,
-} from "lucide-react";
+} from "@phosphor-icons/react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -430,6 +430,8 @@ const PynAIAssistant = () => {
     }
   };
 
+  const hasStartedConversation = messages.some((message) => message.role === "user");
+
   return (
     <>
       <div className="fixed bottom-24 right-6 z-50">
@@ -442,7 +444,7 @@ const PynAIAssistant = () => {
           )}
           aria-label="Open Pyn AI assistant"
         >
-          <Bot className="h-6 w-6" />
+          <Robot className="h-6 w-6" weight="duotone" />
           <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-pyn-amber text-[10px] font-bold text-pyn-dark">
             AI
           </span>
@@ -464,7 +466,7 @@ const PynAIAssistant = () => {
                 <div className="flex items-start justify-between gap-4 p-4">
                   <div className="flex items-center gap-3">
                     <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-pyn-blue/20 text-pyn-lightBlue">
-                      <Sparkles className="h-5 w-5" />
+                      <Sparkle className="h-5 w-5" weight="duotone" />
                     </div>
                     <div>
                       <div className="flex items-center gap-2">
@@ -480,7 +482,7 @@ const PynAIAssistant = () => {
                     className="rounded-full p-2 text-slate-300 transition hover:bg-white/10 hover:text-white"
                     aria-label="Close Pyn AI assistant"
                   >
-                    <X className="h-5 w-5" />
+                    <X className="h-5 w-5" weight="bold" />
                   </button>
                 </div>
               </div>
@@ -488,7 +490,7 @@ const PynAIAssistant = () => {
               <div ref={chatScrollRef} className="min-h-0 flex-1 overflow-y-auto overscroll-contain bg-pyn-gray/80 p-4">
                 <div className="mb-4 rounded-md border border-pyn-blue/15 bg-white/80 p-3 text-xs text-slate-600 backdrop-blur-xl">
                   <div className="mb-1 flex items-center gap-2 font-semibold text-pyn-dark">
-                    <CheckCircle2 className="h-4 w-4 text-pyn-blue" />
+                    <CheckCircle className="h-4 w-4 text-pyn-blue" weight="fill" />
                     Smart site assistant
                   </div>
                   It can answer service questions instantly. For custom pricing or exact deadlines, it asks for details instead of guessing.
@@ -502,7 +504,7 @@ const PynAIAssistant = () => {
                     >
                       {message.role === "bot" && (
                         <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-pyn-dark text-white">
-                          <Bot className="h-4 w-4" />
+                          <Robot className="h-4 w-4" weight="duotone" />
                         </div>
                       )}
 
@@ -528,7 +530,7 @@ const PynAIAssistant = () => {
                                   onClick={() => setIsOpen(false)}
                                   className="inline-flex items-center rounded-full border border-pyn-blue/20 bg-white/80 px-3 py-1.5 text-xs font-semibold text-pyn-blue backdrop-blur-xl transition hover:bg-pyn-blue hover:text-white"
                                 >
-                                  {action.label} <ArrowRight className="ml-1 h-3 w-3" />
+                                  {action.label} <ArrowRight className="ml-1 h-3 w-3" weight="bold" />
                                 </Link>
                               ) : (
                                 <button
@@ -547,7 +549,7 @@ const PynAIAssistant = () => {
 
                       {message.role === "user" && (
                         <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-pyn-blue/10 text-pyn-blue">
-                          <User className="h-4 w-4" />
+                          <User className="h-4 w-4" weight="duotone" />
                         </div>
                       )}
                     </div>
@@ -556,18 +558,20 @@ const PynAIAssistant = () => {
               </div>
 
               <div className="shrink-0 border-t border-pyn-blue/15 bg-white/80 p-3 backdrop-blur-xl">
-                <div className="mb-3 flex flex-wrap gap-2">
-                  {starterPrompts.map((prompt) => (
-                    <button
-                      key={prompt}
-                      type="button"
-                      onClick={() => submitQuestion(prompt)}
-                      className="rounded-full bg-pyn-blue/10 px-3 py-1.5 text-xs font-medium text-pyn-blue transition hover:bg-pyn-blue hover:text-white"
-                    >
-                      {prompt}
-                    </button>
-                  ))}
-                </div>
+                {!hasStartedConversation && (
+                  <div className="mb-3 flex flex-wrap gap-2">
+                    {starterPrompts.map((prompt) => (
+                      <button
+                        key={prompt}
+                        type="button"
+                        onClick={() => submitQuestion(prompt)}
+                        className="rounded-full bg-pyn-blue/10 px-3 py-1.5 text-xs font-medium text-pyn-blue transition hover:bg-pyn-blue hover:text-white"
+                      >
+                        {prompt}
+                      </button>
+                    ))}
+                  </div>
+                )}
 
                 <form onSubmit={handleSubmit} className="flex items-end gap-2">
                   <textarea
@@ -579,7 +583,7 @@ const PynAIAssistant = () => {
                     className="max-h-28 min-h-11 flex-1 resize-none rounded-md border border-pyn-blue/15 bg-white/80 px-3 py-3 text-sm outline-none backdrop-blur-xl transition focus:border-pyn-blue focus:ring-2 focus:ring-pyn-blue/15"
                   />
                   <Button type="submit" size="icon" className="h-11 w-11 shrink-0 bg-pyn-dark text-white hover:bg-pyn-blue">
-                    <Send className="h-4 w-4" />
+                    <PaperPlaneTilt className="h-4 w-4" weight="fill" />
                   </Button>
                 </form>
 
@@ -591,9 +595,9 @@ const PynAIAssistant = () => {
                   }}
                   className="mt-3 flex w-full items-center justify-center gap-2 rounded-md border border-pyn-blue/20 px-3 py-2 text-sm font-semibold text-pyn-dark transition hover:bg-pyn-gray"
                 >
-                  <CalendarDays className="h-4 w-4 text-pyn-blue" />
+                  <CalendarDots className="h-4 w-4 text-pyn-blue" weight="duotone" />
                   Need exact quote? Talk to Pyn team
-                  <MessageCircle className="h-4 w-4 text-pyn-blue" />
+                  <ChatCircle className="h-4 w-4 text-pyn-blue" weight="duotone" />
                 </button>
               </div>
             </div>

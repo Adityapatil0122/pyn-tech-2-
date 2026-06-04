@@ -2,42 +2,49 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
-import { Code, Database, Globe, Network, Webhook, Terminal } from "lucide-react";
+import { Code, Database, Globe, ShareNetwork, ArrowsClockwise, Terminal } from "@phosphor-icons/react";
+import ColorfulIcon from "@/components/icons/ColorfulIcon";
 
 export const IntegrationTypes = () => {
   const integrations = [
     {
       icon: Code,
+      palette: "ocean" as const,
       title: "REST APIs",
       description: "Standard RESTful APIs for straightforward integration with most applications and services.",
       details: "JSON/XML support, versioned endpoints, comprehensive documentation"
     },
     {
-      icon: Webhook,
+      icon: ArrowsClockwise,
+      palette: "mint" as const,
       title: "Webhooks",
       description: "Event-driven architecture that sends real-time updates when specific events occur.",
       details: "Customizable triggers, retry logic, payload validation"
     },
     {
       icon: Database,
+      palette: "violet" as const,
       title: "Database Connectors",
       description: "Direct connections to your databases for seamless data synchronization.",
       details: "SQL, NoSQL, Data Lakes, ORM support"
     },
     {
       icon: Globe,
+      palette: "sky" as const,
       title: "GraphQL APIs",
       description: "Query language for APIs that gives clients the power to ask for exactly what they need.",
       details: "Query optimization, schema validation, subscriptions"
     },
     {
-      icon: Network,
+      icon: ShareNetwork,
+      palette: "sunset" as const,
       title: "Microservices",
       description: "Integrate with distributed microservice architectures for modular, scalable systems.",
       details: "Service discovery, load balancing, circuit breakers"
     },
     {
       icon: Terminal,
+      palette: "graphite" as const,
       title: "CLI Tools",
       description: "Command-line interfaces for developers to interact with APIs and automate workflows.",
       details: "Scripting support, automation capabilities, CI/CD integration"
@@ -74,9 +81,7 @@ export const IntegrationTypes = () => {
                 <CardContent className="p-0">
                   <div className="p-6 border-b border-gray-100">
                     <div className="flex items-center gap-4 mb-4">
-                      <div className="w-12 h-12 bg-pyn-blue/10 rounded-xl flex items-center justify-center">
-                        <item.icon className="h-6 w-6 text-pyn-blue" />
-                      </div>
+                      <ColorfulIcon icon={item.icon} palette={item.palette} className="rounded-xl" />
                       <h3 className="text-xl font-semibold">{item.title}</h3>
                     </div>
                     <p className="text-gray-600 mb-4">{item.description}</p>

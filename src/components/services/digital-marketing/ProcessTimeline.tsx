@@ -1,16 +1,17 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Search, Presentation, Terminal, BarChart, FileText } from "lucide-react";
+import { MagnifyingGlass, Presentation, Terminal, ChartBar, FileText } from "@phosphor-icons/react";
 import { Badge } from "@/components/ui/badge";
+import ColorfulIcon from "@/components/icons/ColorfulIcon";
 
 const steps = [
   {
     id: 1,
     title: "Research & Analysis",
     description: "We analyze your business, audience, competitors, and market trends to identify opportunities.",
-    icon: <Search size={24} />,
-    iconBg: "bg-pyn-blue",
+    icon: MagnifyingGlass,
+    palette: "ocean" as const,
     items: [
       { text: "Market Opportunity Analysis", isLeft: true },
       { text: "Audience Persona Development", isLeft: true },
@@ -22,8 +23,8 @@ const steps = [
     id: 2,
     title: "Strategy Development",
     description: "We create a data-driven marketing strategy tailored to your specific business goals.",
-    icon: <Presentation size={24} />,
-    iconBg: "bg-pyn-blue",
+    icon: Presentation,
+    palette: "violet" as const,
     items: [
       { text: "Channel Selection & Prioritization", isLeft: true },
       { text: "Budget Allocation Modeling", isLeft: true },
@@ -35,8 +36,8 @@ const steps = [
     id: 3, 
     title: "Implementation",
     description: "Our team executes the strategy across selected channels with continuous optimization.",
-    icon: <Terminal size={24} />,
-    iconBg: "bg-green-500",
+    icon: Terminal,
+    palette: "mint" as const,
     items: [
       { text: "Channel Setup & Configuration", isLeft: true },
       { text: "Campaign Launch Sequence", isLeft: true },
@@ -48,8 +49,8 @@ const steps = [
     id: 4,
     title: "Monitoring & Optimization",
     description: "We track performance in real-time and make data-driven adjustments to maximize results.",
-    icon: <BarChart size={24} />,
-    iconBg: "bg-pyn-blue",
+    icon: ChartBar,
+    palette: "sunset" as const,
     items: [
       { text: "Real-time Performance Monitoring", isLeft: true },
       { text: "Budget Reallocation Based on Results", isLeft: true },
@@ -61,8 +62,8 @@ const steps = [
     id: 5,
     title: "Reporting & Strategy Refinement",
     description: "Comprehensive reporting with actionable insights to continuously improve strategy.",
-    icon: <FileText size={24} />,
-    iconBg: "bg-pyn-darkBlue",
+    icon: FileText,
+    palette: "graphite" as const,
     items: [
       { text: "Comprehensive Performance Reporting", isLeft: true },
       { text: "Growth Opportunity Identification", isLeft: true },
@@ -104,9 +105,7 @@ const ProcessTimeline = () => {
             >
               {/* Icon */}
               <div className="flex-shrink-0 relative z-10">
-                <div className={`flex items-center justify-center w-[55px] h-[55px] rounded-full ${step.iconBg} text-white shadow-lg`}>
-                  {step.icon}
-                </div>
+                <ColorfulIcon icon={step.icon} palette={step.palette} className="h-[55px] w-[55px] rounded-full" />
               </div>
               
               {/* Content */}

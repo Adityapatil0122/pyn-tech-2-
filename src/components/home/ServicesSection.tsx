@@ -1,5 +1,6 @@
-import { ArrowRight, BadgeCheck, BarChart3, Code2, MessageSquareText, Palette, PanelsTopLeft, Smartphone } from "lucide-react";
+import { ArrowRight, Seal, ChartBar, Code, ChatText, Palette, AppWindow, DeviceMobile } from "@phosphor-icons/react";
 import { Link } from "react-router-dom";
+import ColorfulIcon, { type ColorfulIconPalette } from "@/components/icons/ColorfulIcon";
 
 type ServiceCardProps = {
   icon: React.ElementType;
@@ -7,31 +8,29 @@ type ServiceCardProps = {
   description: string;
   features: string[];
   link: string;
-  tone: string;
+  palette: ColorfulIconPalette;
 };
 
-const ServiceCard = ({ icon: Icon, title, description, features, link, tone }: ServiceCardProps) => {
+const ServiceCard = ({ icon, title, description, features, link, palette }: ServiceCardProps) => {
   return (
     <Link
       to={link}
       className="group grid h-full rounded-lg border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-pyn-blue/40 hover:shadow-xl"
     >
       <div className="mb-5 flex items-center gap-4">
-        <div className={`flex h-12 w-12 items-center justify-center rounded-lg ${tone}`}>
-          <Icon className="h-6 w-6" />
-        </div>
+        <ColorfulIcon icon={icon} palette={palette} />
         <h3 className="text-xl font-semibold text-pyn-dark">{title}</h3>
       </div>
       <p className="mb-5 text-sm leading-relaxed text-slate-600">{description}</p>
       <ul className="mb-6 grid gap-2">
         {features.map((feature) => (
           <li key={feature} className="flex items-center text-sm text-slate-600">
-            <BadgeCheck className="mr-2 h-4 w-4 text-pyn-blue" /> {feature}
+            <Seal className="mr-2 h-4 w-4 text-pyn-blue" weight="fill" /> {feature}
           </li>
         ))}
       </ul>
       <span className="mt-auto inline-flex items-center text-sm font-semibold text-pyn-blue group-hover:text-pyn-darkBlue">
-        Learn more <ArrowRight className="ml-2 h-4 w-4" />
+        Learn more <ArrowRight className="ml-2 h-4 w-4" weight="bold" />
       </span>
     </Link>
   );
@@ -42,40 +41,40 @@ const ServicesSection = () => {
     {
       title: "Website Development",
       description: "Fast, responsive websites and web apps built around clear conversion paths.",
-      icon: Code2,
-      tone: "bg-pyn-blue/10 text-pyn-blue",
+      icon: Code,
+      palette: "ocean" as const,
       features: ["Custom Web Development", "eCommerce Solutions", "WordPress Development", "Responsive Design"],
       link: "/services/website-development",
     },
     {
       title: "App Development",
       description: "Mobile and cross-platform applications designed for real daily use.",
-      icon: Smartphone,
-      tone: "bg-pyn-lightBlue/20 text-pyn-darkBlue",
+      icon: DeviceMobile,
+      palette: "sky" as const,
       features: ["Native App Development", "Cross-platform Solutions", "App UI/UX Design", "App Maintenance"],
       link: "/services/app-development",
     },
     {
       title: "Digital Marketing",
       description: "Campaign systems for visibility, leads, and measurable online momentum.",
-      icon: BarChart3,
-      tone: "bg-pyn-amber/20 text-pyn-dark",
+      icon: ChartBar,
+      palette: "sunset" as const,
       features: ["SEO Optimization", "Social Media Marketing", "PPC Campaigns", "Content Marketing"],
       link: "/services/digital-marketing",
     },
     {
       title: "WhatsApp Business API",
       description: "Automation, broadcasts, and support flows for high-response customer channels.",
-      icon: MessageSquareText,
-      tone: "bg-emerald-100 text-emerald-700",
+      icon: ChatText,
+      palette: "mint" as const,
       features: ["Business Account Setup", "Automated Responses", "Broadcast Messages", "Analytics Dashboard"],
       link: "/services/whatsapp-business",
     },
     {
       title: "UI/UX Design",
       description: "Interfaces that make complex products easier to trust, scan, and use.",
-      icon: PanelsTopLeft,
-      tone: "bg-slate-100 text-slate-700",
+      icon: AppWindow,
+      palette: "violet" as const,
       features: ["User Research", "Interface Design", "Prototyping", "Usability Testing"],
       link: "/services/ui-ux-design",
     },
@@ -83,7 +82,7 @@ const ServicesSection = () => {
       title: "Graphics Design",
       description: "Brand visuals, social creatives, and print assets with a clean digital finish.",
       icon: Palette,
-      tone: "bg-pyn-lightBlue/30 text-pyn-darkBlue",
+      palette: "rose" as const,
       features: ["Brand Identity", "Marketing Materials", "Social Media Graphics", "Print Design"],
       link: "/services/graphics-designing",
     },

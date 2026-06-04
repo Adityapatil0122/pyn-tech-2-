@@ -1,5 +1,5 @@
 
-import { ArrowRight, Smartphone, AppWindow, Server, LayoutDashboard } from "lucide-react";
+import { ArrowRight, DeviceMobile, AppWindow, HardDrives, SquaresFour } from "@phosphor-icons/react";
 import { Button } from "@/components/ui/button";
 
 const Hero = () => {
@@ -12,7 +12,7 @@ const Hero = () => {
             <span className="inline-block px-3 py-1 bg-pyn-blue/20 text-pyn-blue rounded-full text-sm font-medium mb-2 animate-fade-in">
               Mobile App Development
             </span>
-            <h1 className="bg-clip-text text-transparent bg-gradient-to-r from-pyn-blue to-pyn-darkBlue text-5xl font-bold">
+            <h1 className="bg-clip-text text-transparent bg-gradient-to-r from-pyn-blue to-pyn-darkBlue text-3xl font-bold leading-tight sm:text-4xl md:text-5xl">
               Transform Your Vision Into Powerful Digital Experiences
             </h1>
             <p className="text-lg text-gray-700 animate-fade-in" style={{
@@ -24,8 +24,8 @@ const Hero = () => {
             <div className="flex flex-wrap gap-4 pt-2 animate-fade-in" style={{
               animationDelay: "0.3s"
             }}>
-              <Button size="lg" className="bg-pyn-blue hover:bg-pyn-darkBlue text-white" onClick={() => window.dispatchEvent(new CustomEvent('open-contact'))}>
-                Start Your Project <ArrowRight className="ml-2 h-5 w-5" />
+              <Button size="lg" className="w-full bg-pyn-blue text-white hover:bg-pyn-darkBlue sm:w-auto" onClick={() => window.dispatchEvent(new CustomEvent('open-contact'))}>
+                Start Your Project <ArrowRight weight="bold" className="ml-2 h-5 w-5" />
               </Button>
             </div>
           </div>
@@ -92,9 +92,9 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 z-10 relative">
+        <div className="grid grid-cols-1 gap-6 mt-16 z-10 relative sm:grid-cols-2 md:grid-cols-4">
           {[{
-            icon: Smartphone,
+            icon: DeviceMobile,
             title: "iOS App Development",
             description: "Native and cross-platform solutions for Apple devices"
           }, {
@@ -102,11 +102,11 @@ const Hero = () => {
             title: "Android App Development",
             description: "Custom Android applications with material design"
           }, {
-            icon: LayoutDashboard,
+            icon: SquaresFour,
             title: "Custom Web Applications",
             description: "Responsive web apps optimized for all devices"
           }, {
-            icon: Server,
+            icon: HardDrives,
             title: "Performance Optimized",
             description: "Fast, efficient apps with optimized performance"
           }].map((feature, index) => (
@@ -114,7 +114,7 @@ const Hero = () => {
               animationDelay: `${0.2 + index * 0.1}s`
             }}>
               <div className="w-12 h-12 bg-pyn-blue/10 rounded-lg flex items-center justify-center mb-4">
-                <feature.icon className="h-6 w-6 text-pyn-blue" />
+                <feature.icon weight="duotone" className="h-6 w-6 text-pyn-blue" />
               </div>
               <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
               <p className="text-gray-600 text-sm">{feature.description}</p>

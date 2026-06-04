@@ -1,31 +1,32 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { MessageSquare, Bot, Puzzle, BrainCircuit, Globe, Lock, Zap, Database, LineChart } from 'lucide-react';
+import { Chat, Robot, PuzzlePiece, Brain, Globe, Lock, Lightning, Database, ChartLine } from "@phosphor-icons/react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { cn } from "@/lib/utils";
 import { useIsMobile } from "@/hooks/use-mobile";
+import ColorfulIcon, { type ColorfulIconPalette } from "@/components/icons/ColorfulIcon";
 
 const features = [{
-  icon: MessageSquare,
+  icon: Chat,
   title: "Natural Language Understanding",
   description: "Our chatbots understand context, slang, and even misspellings to maintain natural conversations.",
   color: "primary",
   category: "core"
 }, {
-  icon: BrainCircuit,
+  icon: Brain,
   title: "Continuous Learning",
   description: "AI chatbots that improve over time by learning from every interaction.",
   color: "teal",
   category: "core"
 }, {
-  icon: Bot,
+  icon: Robot,
   title: "24/7 Automated Support",
   description: "Handle customer inquiries around the clock, providing instant responses without delay.",
   color: "cyan",
   category: "core"
 }, {
-  icon: LineChart,
+  icon: ChartLine,
   title: "Advanced Analytics",
   description: "Gain insights into customer queries, sentiment trends, and chatbot performance.",
   color: "amber",
@@ -37,13 +38,13 @@ const features = [{
   color: "graphite",
   category: "integration"
 }, {
-  icon: Puzzle,
+  icon: PuzzlePiece,
   title: "Easy Integration",
   description: "Seamlessly integrate with your existing websites, apps, and customer service platforms.",
   color: "teal",
   category: "integration"
 }, {
-  icon: Zap,
+  icon: Lightning,
   title: "Instant Deployment",
   description: "Get your chatbot up and running in days, not months, with our streamlined implementation.",
   color: "amber",
@@ -81,13 +82,13 @@ const featureCategories = [{
 
 // Helper function to get the correct color classes
 const getColorClasses = (color: string) => {
-  const colorMap: Record<string, { bg: string, text: string, border: string }> = {
-    primary: { bg: "bg-pyn-blue/10", text: "text-pyn-blue", border: "bg-pyn-blue" },
-    teal: { bg: "bg-pyn-gray", text: "text-pyn-darkBlue", border: "bg-pyn-darkBlue" },
-    cyan: { bg: "bg-pyn-lightBlue/10", text: "text-pyn-lightBlue", border: "bg-pyn-lightBlue" },
-    amber: { bg: "bg-pyn-amber/10", text: "text-pyn-darkBlue", border: "bg-pyn-amber" },
-    graphite: { bg: "bg-slate-100", text: "text-slate-700", border: "bg-slate-500" },
-    emerald: { bg: "bg-emerald-50", text: "text-emerald-600", border: "bg-emerald-500" }
+  const colorMap: Record<string, { bg: string, text: string, border: string, palette: ColorfulIconPalette }> = {
+    primary: { bg: "bg-pyn-blue/10", text: "text-pyn-blue", border: "bg-pyn-blue", palette: "ocean" },
+    teal: { bg: "bg-pyn-gray", text: "text-pyn-darkBlue", border: "bg-pyn-darkBlue", palette: "mint" },
+    cyan: { bg: "bg-pyn-lightBlue/10", text: "text-pyn-lightBlue", border: "bg-pyn-lightBlue", palette: "sky" },
+    amber: { bg: "bg-pyn-amber/10", text: "text-pyn-darkBlue", border: "bg-pyn-amber", palette: "sunset" },
+    graphite: { bg: "bg-slate-100", text: "text-slate-700", border: "bg-slate-500", palette: "graphite" },
+    emerald: { bg: "bg-emerald-50", text: "text-emerald-600", border: "bg-emerald-500", palette: "lime" }
   };
   
   return colorMap[color] || colorMap.primary;
@@ -155,9 +156,12 @@ export const Features = () => {
                     >
                       <Card className="border border-slate-200 h-full bg-white hover:shadow-lg transition-all duration-300 overflow-hidden group cursor-pointer">
                         <CardContent className="p-6">
-                          <div className={cn("w-14 h-14 rounded-lg flex items-center justify-center mb-5 group-hover:scale-110 transition duration-300", colorClasses.bg)}>
-                            <feature.icon className={colorClasses.text} size={28} />
-                          </div>
+                          <ColorfulIcon
+                            icon={feature.icon}
+                            palette={colorClasses.palette}
+                            className="mb-5 h-14 w-14"
+                            iconClassName="h-7 w-7"
+                          />
                           <h3 className="text-xl font-semibold text-slate-900 mb-3">{feature.title}</h3>
                           <p className="text-slate-600">{feature.description}</p>
                         </CardContent>

@@ -1,10 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { LineChart, BrainCircuit, Bot, Database, Code, Network } from 'lucide-react';
+import { ChartLine, Brain, Robot, Database, Code, Network } from "@phosphor-icons/react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Check } from 'lucide-react';
+import { ArrowRight, Check } from "@phosphor-icons/react";
 import { Badge } from "@/components/ui/badge";
+import ColorfulIcon, { type ColorfulIconPalette } from "@/components/icons/ColorfulIcon";
 interface SolutionCard {
   icon: React.ElementType;
   title: string;
@@ -13,29 +14,29 @@ interface SolutionCard {
   tone: string;
 }
 
-const solutionTones: Record<string, { iconBg: string; iconText: string }> = {
-  primary: { iconBg: "bg-pyn-blue/10", iconText: "text-pyn-blue" },
-  teal: { iconBg: "bg-pyn-gray", iconText: "text-pyn-darkBlue" },
-  cyan: { iconBg: "bg-pyn-lightBlue/10", iconText: "text-pyn-lightBlue" },
-  accent: { iconBg: "bg-pyn-amber/10", iconText: "text-pyn-darkBlue" },
-  slate: { iconBg: "bg-slate-100", iconText: "text-slate-700" },
-  emerald: { iconBg: "bg-emerald-50", iconText: "text-emerald-600" },
+const solutionTones: Record<string, { iconText: string; palette: ColorfulIconPalette }> = {
+  primary: { iconText: "text-pyn-blue", palette: "ocean" },
+  teal: { iconText: "text-pyn-darkBlue", palette: "mint" },
+  cyan: { iconText: "text-pyn-lightBlue", palette: "sky" },
+  accent: { iconText: "text-pyn-darkBlue", palette: "sunset" },
+  slate: { iconText: "text-slate-700", palette: "graphite" },
+  emerald: { iconText: "text-emerald-600", palette: "lime" },
 };
 
 const solutionCards: SolutionCard[] = [{
-  icon: LineChart,
+  icon: ChartLine,
   title: "Predictive Analytics",
   description: "Forecast trends, customer behavior, and business outcomes using machine learning models trained on your data.",
   features: ["Sales forecasting", "Customer churn prediction", "Inventory optimization", "Risk assessment"],
   tone: "primary"
 }, {
-  icon: BrainCircuit,
+  icon: Brain,
   title: "Recommendation Systems",
   description: "Increase engagement and sales with personalized recommendations for products, content, or services.",
   features: ["Product recommendations", "Content personalization", "Cross-selling opportunities", "User experience enhancement"],
   tone: "teal"
 }, {
-  icon: Bot,
+  icon: Robot,
   title: "Computer Vision",
   description: "Extract insights from images and video with custom models for object detection, classification, and more.",
   features: ["Object detection", "Image classification", "Facial recognition", "Visual inspection"],
@@ -101,9 +102,7 @@ export const SolutionsGrid = () => {
       }} className="h-full">
             <Card className="border border-slate-200 bg-white h-full hover:shadow-md transition duration-300 group overflow-hidden">
               <CardContent className="p-6">
-                <div className={`w-12 h-12 rounded-xl ${tone.iconBg} flex items-center justify-center mb-4 group-hover:scale-110 transition duration-300`}>
-                  <solution.icon className={`h-6 w-6 ${tone.iconText}`} />
-                </div>
+                <ColorfulIcon icon={solution.icon} palette={tone.palette} className="mb-4 rounded-xl" />
                 <h3 className="text-lg font-semibold mb-2">{solution.title}</h3>
                 <p className="text-slate-600 mb-4 text-base">{solution.description}</p>
                 

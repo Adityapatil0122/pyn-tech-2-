@@ -1,44 +1,51 @@
 
 import React from 'react';
 import { motion } from "framer-motion";
-import { CheckCircle2, FileText, Figma, Code, Smartphone, Settings, CheckCircle } from "lucide-react";
+import { CheckCircle, FileText, PencilSimple, Code, DeviceMobile, GearSix } from "@phosphor-icons/react";
+import ColorfulIcon from "@/components/icons/ColorfulIcon";
 
 const steps = [
   {
     title: "Discovery & Planning",
     description: "We begin by understanding your business goals, target audience, and app requirements. This phase includes detailed discussions, market research, and planning to establish project scope and timelines.",
     substeps: ["Requirements gathering", "Market research", "User persona development", "Feature prioritization", "Project roadmap creation"],
-    icon: FileText
+    icon: FileText,
+    palette: "ocean" as const
   },
   {
     title: "UX/UI Design",
     description: "Our designers create intuitive, engaging interfaces tailored for mobile experiences. We develop wireframes, mockups, and interactive prototypes that align with platform guidelines and your brand identity.",
     substeps: ["Wireframing", "Interface design", "Prototype development", "User flow mapping", "Design system creation"],
-    icon: Figma
+    icon: PencilSimple,
+    palette: "rose" as const
   },
   {
     title: "Development",
     description: "Our engineers build your app using the appropriate technologies for your requirements. We focus on clean architecture, performance optimization, and adherence to platform guidelines.",
     substeps: ["Frontend development", "Backend integration", "API development", "Authentication implementation", "Third-party integrations"],
-    icon: Code
+    icon: Code,
+    palette: "violet" as const
   },
   {
     title: "Testing & QA",
     description: "Rigorous testing ensures your app functions flawlessly across devices. We conduct functional, performance, security, and usability testing to identify and resolve any issues before launch.",
     substeps: ["Functional testing", "Device compatibility testing", "Performance optimization", "Security testing", "Usability testing"],
-    icon: CheckCircle
+    icon: CheckCircle,
+    palette: "mint" as const
   },
   {
     title: "Deployment",
     description: "We handle the entire app store submission process, ensuring compliance with platform guidelines and optimizing your store presence for maximum visibility and downloads.",
     substeps: ["App store optimization", "Store listing creation", "Screenshot generation", "Metadata preparation", "Submission management"],
-    icon: Smartphone
+    icon: DeviceMobile,
+    palette: "sky" as const
   },
   {
     title: "Maintenance & Updates",
     description: "Our partnership continues after launch with comprehensive support and update services. We monitor performance, implement enhancements, and ensure compatibility with the latest OS versions.",
     substeps: ["Bug fixes and updates", "Performance monitoring", "Feature enhancements", "Platform compatibility updates", "Analytics review"],
-    icon: Settings
+    icon: GearSix,
+    palette: "sunset" as const
   }
 ];
 
@@ -69,9 +76,7 @@ const ProcessTimeline = () => {
               >
                 {/* Timeline node */}
                 <div className="flex-none flex items-center justify-center">
-                  <div className="w-12 h-12 rounded-full bg-pyn-blue flex items-center justify-center shadow-lg relative z-10">
-                    <step.icon className="text-white w-6 h-6" />
-                  </div>
+                  <ColorfulIcon icon={step.icon} palette={step.palette} className="relative z-10 rounded-full" />
                 </div>
                 
                 {/* Content */}

@@ -1,7 +1,7 @@
 
 import React, { forwardRef } from 'react';
 import { motion } from "framer-motion";
-import { Users, Layout, PenTool, Layers, EyeIcon, Code } from "lucide-react";
+import { Users, AppWindow, PenNib, Stack, Eye, Code } from "@phosphor-icons/react";
 import ServiceCard from './ServiceCard';
 
 const services = [
@@ -10,42 +10,48 @@ const services = [
     title: "User Research & Strategy",
     description: "Understand your users' needs, behaviors, and motivations to inform design decisions.",
     features: ["User Interviews & Surveys", "Competitive Analysis", "Persona Development", "User Journey Mapping"],
-    color: "from-pyn-amber to-pyn-darkBlue"
+    color: "from-pyn-amber to-pyn-darkBlue",
+    palette: "sunset" as const
   },
   {
-    icon: Layout,
+    icon: AppWindow,
     title: "Information Architecture",
     description: "Structure and organize your content for optimal user navigation and findability.",
     features: ["Site Mapping", "Content Hierarchy", "Navigation Systems", "User Flow Design"],
-    color: "from-pyn-blue to-pyn-darkBlue"
+    color: "from-pyn-blue to-pyn-darkBlue",
+    palette: "ocean" as const
   },
   {
-    icon: PenTool,
+    icon: PenNib,
     title: "UI Design & Branding",
     description: "Create visually stunning interfaces that align with your brand identity.",
     features: ["Visual Design Systems", "Color & Typography", "Icon & Illustration Design", "Brand Identity Integration"],
-    color: "from-pyn-amber to-pyn-blue"
+    color: "from-pyn-amber to-pyn-blue",
+    palette: "rose" as const
   },
   {
-    icon: Layers,
+    icon: Stack,
     title: "Wireframing & Prototyping",
     description: "Visualize layouts and interactions before full development to save time and resources.",
     features: ["Low & High Fidelity Wireframes", "Interactive Prototypes", "Responsive Layouts", "Component Libraries"],
-    color: "from-pyn-amber to-pyn-blue"
+    color: "from-pyn-amber to-pyn-blue",
+    palette: "violet" as const
   },
   {
-    icon: EyeIcon,
+    icon: Eye,
     title: "Usability Testing",
     description: "Validate designs with real users to identify issues and optimize the experience.",
     features: ["User Testing Sessions", "A/B Testing", "Heatmap Analysis", "Accessibility Evaluation"],
-    color: "from-emerald-500 to-green-600"
+    color: "from-emerald-500 to-green-600",
+    palette: "mint" as const
   },
   {
     icon: Code,
     title: "Implementation Support",
     description: "Bridge the gap between design and development for seamless execution.",
     features: ["Design Specifications", "Developer Handoff", "Implementation Guidance", "Quality Assurance"],
-    color: "from-pyn-lightBlue to-pyn-blue"
+    color: "from-pyn-lightBlue to-pyn-blue",
+    palette: "sky" as const
   }
 ];
 

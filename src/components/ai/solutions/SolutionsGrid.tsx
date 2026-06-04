@@ -1,35 +1,36 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRightIcon, BrainCircuitIcon, MessageSquareIcon, Bot, ServerIcon } from "lucide-react";
+import { ArrowRight, Brain, Chat, Robot, HardDrives } from "@phosphor-icons/react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
+import ColorfulIcon from "@/components/icons/ColorfulIcon";
 
 export const SolutionsGrid = () => {
   const solutions = [{
     title: "Custom AI Solutions",
     description: "Tailor-made AI solutions designed to address your specific business challenges and automate complex processes.",
-    icon: BrainCircuitIcon,
-    color: "bg-pyn-blue/10 text-pyn-blue",
+    icon: Brain,
+    palette: "violet" as const,
     link: "/ai/custom-solutions"
   }, {
     title: "AI Chatbots",
     description: "Intelligent conversation agents that engage with your customers, answer queries, and streamline support operations.",
-    icon: MessageSquareIcon,
-    color: "bg-emerald-100 text-emerald-600",
+    icon: Chat,
+    palette: "mint" as const,
     link: "/ai/chatbots"
   }, {
     title: "Data Analytics & Insights",
     description: "Transform raw data into actionable business insights with advanced analytics, visualization and forecasting.",
-    icon: ServerIcon,
-    color: "bg-pyn-blue/10 text-pyn-blue",
+    icon: HardDrives,
+    palette: "ocean" as const,
     link: "/ai/data-analytics"
   }, {
     title: "AI Integration & APIs",
     description: "Seamlessly connect AI capabilities with your existing systems through robust API integrations and workflows.",
-    icon: Bot,
-    color: "bg-pyn-amber/20 text-pyn-darkBlue",
+    icon: Robot,
+    palette: "sunset" as const,
     link: "/ai/integration"
   }];
   return <section className="py-12 bg-gradient-to-b from-slate-50 to-white">
@@ -58,16 +59,14 @@ export const SolutionsGrid = () => {
               <Link to={solution.link} className="block h-full">
                 <Card className="h-full hover:shadow-lg transition-all duration-300 border border-slate-200/70">
                   <CardContent className="p-6 flex flex-col h-full">
-                    <div className={`w-12 h-12 rounded-lg ${solution.color} flex items-center justify-center mb-4`}>
-                      <solution.icon className="h-6 w-6" />
-                    </div>
+                    <ColorfulIcon icon={solution.icon} palette={solution.palette} className="mb-4" />
                     
                     <h3 className="text-xl font-semibold mb-3">{solution.title}</h3>
                     <p className="text-gray-600 mb-4 flex-grow">{solution.description}</p>
                     
                     <div className="flex items-center text-pyn-blue font-medium">
                       <span>Learn more</span>
-                      <ArrowRightIcon className="ml-2 h-4 w-4" />
+                      <ArrowRight weight="bold" className="ml-2 h-4 w-4" />
                     </div>
                   </CardContent>
                 </Card>

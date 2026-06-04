@@ -1,17 +1,19 @@
 
 import React from 'react';
 import { motion } from "framer-motion";
-import { Check, LucideIcon } from "lucide-react";
+import { Check } from "@phosphor-icons/react";
+import ColorfulIcon, { type ColorfulIconPalette } from "@/components/icons/ColorfulIcon";
 
 interface ServiceCardProps {
-  icon: LucideIcon;
+  icon: React.ElementType;
   title: string;
   description: string;
   features: string[];
   color?: string;
+  palette?: ColorfulIconPalette;
 }
 
-const ServiceCard = ({ icon: Icon, title, description, features }: ServiceCardProps) => {
+const ServiceCard = ({ icon, title, description, features, palette = "violet" }: ServiceCardProps) => {
   return (
     <motion.div 
       variants={{
@@ -21,15 +23,13 @@ const ServiceCard = ({ icon: Icon, title, description, features }: ServiceCardPr
       className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 relative"
     >
       <div className="p-6">
-        <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-pyn-blue/10 text-pyn-blue ring-1 ring-pyn-blue/15">
-          <Icon className="h-6 w-6" />
-        </div>
+        <ColorfulIcon icon={icon} palette={palette} className="mb-4" />
         <h3 className="text-xl font-semibold mb-3">{title}</h3>
         <p className="text-gray-600 mb-4">{description}</p>
         <ul className="mb-5 space-y-2">
           {features.map((feature, index) => (
             <li key={index} className="flex items-center text-sm text-gray-500">
-              <Check className="h-4 w-4 text-pyn-blue mr-2" />
+              <Check className="h-4 w-4 text-pyn-blue mr-2" weight="bold" />
               {feature}
             </li>
           ))}

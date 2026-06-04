@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { useToast } from "@/components/ui/use-toast";
-import { Check } from "lucide-react";
+import { Check } from "@phosphor-icons/react";
 import { ContactForm } from "./ContactForm";
 import { type ContactFormValues } from "./schema";
 
@@ -31,7 +31,7 @@ const ContactDialog = () => {
         description: "Thank you for contacting us. We'll get back to you shortly.",
         action: (
           <div className="h-8 w-8 bg-green-500/20 rounded-full flex items-center justify-center">
-            <Check className="h-4 w-4 text-green-600" />
+            <Check weight="bold" className="h-4 w-4 text-green-600" />
           </div>
         ),
       });
@@ -42,7 +42,7 @@ const ContactDialog = () => {
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <DialogContent className="sm:max-w-md">
+      <DialogContent className="max-h-[calc(100dvh-2rem)] w-[calc(100vw-1.5rem)] overflow-y-auto rounded-lg sm:max-w-md">
         <DialogHeader>
           <DialogTitle className="text-xl font-bold text-center">Let's Talk</DialogTitle>
         </DialogHeader>

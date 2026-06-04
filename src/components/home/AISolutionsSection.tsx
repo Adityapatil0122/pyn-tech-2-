@@ -1,7 +1,8 @@
 import type { ElementType } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, BadgeCheck, BarChart3, Bot, CheckCircle2, MessageCircle, PlugZap, Sparkles, Workflow } from "lucide-react";
+import { ArrowRight, Seal, ChartBar, Robot, CheckCircle, ChatCircle, PlugsConnected, Sparkle, GitBranch } from "@phosphor-icons/react";
 import { Link } from "react-router-dom";
+import ColorfulIcon, { type ColorfulIconPalette } from "@/components/icons/ColorfulIcon";
 
 type AICardProps = {
   icon: ElementType;
@@ -9,7 +10,7 @@ type AICardProps = {
   description: string;
   features: string[];
   link: string;
-  accent: string;
+  palette: ColorfulIconPalette;
   index: number;
 };
 
@@ -17,7 +18,10 @@ const businessMoments = ["Customer support", "Lead capture", "WhatsApp flows", "
 
 const assistantHighlights = ["Answers faster", "Captures leads", "Alerts your team"];
 
-const AICard = ({ icon: Icon, title, description, features, link, accent, index }: AICardProps) => {
+const assistantVisual =
+  "https://images.unsplash.com/photo-1745674684463-62f62cb88d4c?auto=format&fit=crop&w=1400&q=70";
+
+const AICard = ({ icon, title, description, features, link, palette, index }: AICardProps) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 28 }}
@@ -27,23 +31,21 @@ const AICard = ({ icon: Icon, title, description, features, link, accent, index 
     >
       <Link
         to={link}
-        className="group relative flex h-full min-h-[330px] flex-col overflow-hidden rounded-lg border border-pyn-blue/15 bg-white/80 p-6 shadow-sm backdrop-blur-2xl transition-all duration-300 hover:-translate-y-1 hover:border-pyn-lightBlue/40 hover:shadow-xl"
+        className="group relative flex h-full min-h-[330px] flex-col overflow-hidden rounded-lg border border-pyn-blue/15 bg-white/95 p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-pyn-lightBlue/40 hover:shadow-xl"
       >
         <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-pyn-darkBlue via-pyn-blue to-pyn-lightBlue opacity-70 transition-opacity group-hover:opacity-100" />
-        <div className={`mb-5 flex h-12 w-12 items-center justify-center rounded-lg ${accent}`}>
-          <Icon className="h-6 w-6" />
-        </div>
+        <ColorfulIcon icon={icon} palette={palette} className="mb-5" />
         <h3 className="mb-3 text-xl font-semibold text-pyn-dark">{title}</h3>
         <p className="mb-5 flex-grow text-sm leading-relaxed text-slate-600">{description}</p>
         <ul className="mb-6 space-y-2">
           {features.map((feature) => (
             <li key={feature} className="flex items-center text-sm text-slate-600">
-              <BadgeCheck className="mr-2 h-4 w-4 text-pyn-blue" /> {feature}
+              <Seal className="mr-2 h-4 w-4 text-pyn-blue" weight="fill" /> {feature}
             </li>
           ))}
         </ul>
         <span className="mt-auto inline-flex items-center text-sm font-semibold text-pyn-blue group-hover:text-pyn-darkBlue">
-          View capability <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+          View capability <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" weight="bold" />
         </span>
       </Link>
     </motion.div>
@@ -53,42 +55,46 @@ const AICard = ({ icon: Icon, title, description, features, link, accent, index 
 const AIFlowVisual = () => {
   return (
     <motion.div
-      className="relative overflow-hidden rounded-lg border border-white/10 bg-white/10 p-3 shadow-2xl backdrop-blur-2xl md:p-4"
+      className="relative overflow-hidden rounded-lg border border-white/10 bg-white/10 p-3 shadow-2xl md:p-4"
       initial={{ opacity: 0, scale: 0.96, y: 28 }}
       whileInView={{ opacity: 1, scale: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.65 }}
     >
-      <div className="relative overflow-hidden rounded-lg bg-white/90 text-pyn-dark shadow-xl backdrop-blur-xl">
-        <div className="relative min-h-[320px] overflow-hidden bg-[url('https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1200&q=80')] bg-cover bg-center md:min-h-[390px]">
-          <div className="absolute inset-0 bg-gradient-to-t from-pyn-dark/80 via-pyn-dark/20 to-transparent" />
+      <div className="relative overflow-hidden rounded-lg bg-white/95 text-pyn-dark shadow-xl">
+        <div className="relative min-h-[320px] overflow-hidden bg-pyn-dark md:min-h-[390px]">
+          <img
+            src={assistantVisual}
+            alt="Laptop showing a simple AI assistant search screen"
+            className="absolute inset-0 h-full w-full object-cover"
+            style={{ objectPosition: "center 42%" }}
+            loading="eager"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-pyn-dark/70 via-pyn-dark/10 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-pyn-blue/20 via-transparent to-pyn-amber/10" />
 
-          <motion.div
-            className="absolute left-5 top-5 rounded-full border border-white/20 bg-white/90 px-4 py-2 text-sm font-semibold text-pyn-blue shadow-lg backdrop-blur-xl"
-            animate={{ y: [0, -5, 0] }}
-            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          <div
+            className="absolute left-5 top-5 rounded-full border border-white/30 bg-white/95 px-4 py-2 text-sm font-semibold text-pyn-blue shadow-lg"
           >
             AI assistant active
-          </motion.div>
+          </div>
 
-          <motion.div
-            className="absolute bottom-5 right-5 max-w-[250px] rounded-lg border border-white/20 bg-white/95 p-4 shadow-xl backdrop-blur-xl"
-            animate={{ y: [0, 6, 0] }}
-            transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut" }}
+          <div
+            className="absolute bottom-5 right-5 max-w-[250px] rounded-lg border border-white/40 bg-white/95 p-4 shadow-xl backdrop-blur-sm"
           >
             <div className="mb-2 flex items-center gap-2 text-sm font-bold text-pyn-blue">
-              <MessageCircle className="h-4 w-4" />
+              <ChatCircle className="h-4 w-4" weight="duotone" />
               New customer question
             </div>
             <p className="text-sm leading-relaxed text-slate-700">
               "Can you help me choose the right service?"
             </p>
-          </motion.div>
+          </div>
         </div>
 
         <div className="p-5 md:p-6">
           <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-pyn-blue/10 px-3 py-1 text-xs font-bold uppercase tracking-[0.16em] text-pyn-blue">
-            <Sparkles className="h-3.5 w-3.5" />
+            <Sparkle className="h-3.5 w-3.5" weight="duotone" />
             Simple AI support
           </div>
           <h3 className="max-w-xl text-2xl font-bold leading-tight md:text-3xl">
@@ -108,7 +114,7 @@ const AIFlowVisual = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.08 }}
               >
-                <CheckCircle2 className="h-4 w-4 shrink-0 text-pyn-blue" />
+                <CheckCircle className="h-4 w-4 shrink-0 text-pyn-blue" weight="fill" />
                 <span>{item}</span>
               </motion.div>
             ))}
@@ -124,32 +130,32 @@ const AISolutionsSection = () => {
     {
       title: "AI-Powered Chatbots",
       description: "Conversational assistants for support, lead capture, and customer self-service.",
-      icon: Bot,
-      accent: "bg-pyn-blue/10 text-pyn-blue",
+      icon: Robot,
+      palette: "violet" as const,
       features: ["Virtual Support 24/7", "Multi-language Support", "Custom Training", "Analytics Dashboard"],
       link: "/ai/chatbots",
     },
     {
       title: "Custom AI Solutions",
       description: "Practical AI workflows built around your data, operations, and growth goals.",
-      icon: Workflow,
-      accent: "bg-pyn-amber/20 text-pyn-dark",
+      icon: GitBranch,
+      palette: "sunset" as const,
       features: ["Process Automation", "ML Model Development", "Solution Architecture", "Integration Services"],
       link: "/ai/custom-solutions",
     },
     {
       title: "AI Integration & API",
       description: "Connect AI models, third-party tools, and internal systems with dependable APIs.",
-      icon: PlugZap,
-      accent: "bg-pyn-lightBlue/20 text-pyn-darkBlue",
+      icon: PlugsConnected,
+      palette: "ocean" as const,
       features: ["Third-party Integration", "Custom API Development", "Seamless Connectivity", "Real-time Processing"],
       link: "/ai/integration",
     },
     {
       title: "Data Analytics & Insights",
       description: "Dashboards, forecasts, and decision systems that make business data usable.",
-      icon: BarChart3,
-      accent: "bg-pyn-dark/10 text-pyn-dark",
+      icon: ChartBar,
+      palette: "mint" as const,
       features: ["Predictive Analytics", "Business Intelligence", "Performance Metrics", "Data Visualization"],
       link: "/ai/analytics",
     },
@@ -174,8 +180,8 @@ const AISolutionsSection = () => {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.55 }}
           >
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-sm font-semibold text-pyn-amber backdrop-blur-xl">
-              <Sparkles className="h-4 w-4" />
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-sm font-semibold text-pyn-amber">
+              <Sparkle className="h-4 w-4" weight="duotone" />
               AI Solutions
             </div>
             <h2 className="max-w-3xl text-4xl font-bold leading-tight text-white md:text-6xl">
@@ -189,7 +195,7 @@ const AISolutionsSection = () => {
               {businessMoments.map((moment, index) => (
                 <motion.span
                   key={moment}
-                  className="rounded-full border border-white/10 bg-white/10 px-4 py-2 text-sm font-semibold text-slate-100 backdrop-blur-xl"
+                  className="rounded-full border border-white/10 bg-white/10 px-4 py-2 text-sm font-semibold text-slate-100"
                   initial={{ opacity: 0, y: 12 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -204,7 +210,7 @@ const AISolutionsSection = () => {
           <AIFlowVisual />
         </div>
 
-        <div className="mt-16 rounded-lg border border-white/50 bg-white/72 p-4 shadow-xl shadow-pyn-dark/10 backdrop-blur-2xl md:p-6">
+        <div className="mt-16 rounded-lg border border-white/50 bg-white/95 p-4 shadow-xl shadow-pyn-dark/10 md:p-6">
           <div className="mb-8 grid gap-4 md:grid-cols-[0.85fr_1.15fr] md:items-end">
             <div>
               <div className="mb-3 inline-flex rounded-full bg-pyn-blue/10 px-4 py-1 text-sm font-semibold text-pyn-blue">
